@@ -47,7 +47,7 @@ export default function SearchBa() {
         }}
         onKeyDown={(e) => e.key === "Enter" && handleSearch()}
         onBlur={() => setTimeout(() => setShowSuggestions(false), 100)}
-        placeholder="Search..."
+        placeholder="یہاں سرچ کریں"
         className="p-3 py-4 border border-gray-300 rounded w-full md:w-2/3 text-right font-urdu"
       />
       {showSuggestions && suggestions.length > 0 && (

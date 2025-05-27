@@ -8,7 +8,8 @@ interface PageProps {
 }
 // export const revalidate = 60
 export function generateStaticParams() {
-  const slugs = dictionaryData.slice(0,5000)
+  const slugs = dictionaryData
+    .slice(0, 5000)
     .filter((item) => item && item[1]) // Filter out null/undefined and missing index
     .map((item) => ({
       slug: item[1],
@@ -48,8 +49,8 @@ export default async function WordPage({ params }: PageProps) {
   if (!match) return notFound();
 
   return (
-    <div className="mt-6">
+    <main>
       <FullCard item={match} />
-    </div>
+    </main>
   );
 }

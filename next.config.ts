@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
     
   },
   output: 'export',
+  basePath: 'urdudictinory',
+  // assetPrefix: isGithubPages ? `/${repo}/` : '',
 };
 
 export default nextConfig;

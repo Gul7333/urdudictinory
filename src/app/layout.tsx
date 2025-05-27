@@ -51,10 +51,10 @@ export default function RootLayout({
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800">
             Very Large and Concise Dictionary of Urdu
           </h2>
+        <SearchBar /> {/* ⬅️ Appears on all pages */}
         </header>
            
 
-        <SearchBar /> {/* ⬅️ Appears on all pages */}
         
         <main className="px-6 max-w-4xl mx-auto mt-6">{children}</main>
       </body>
