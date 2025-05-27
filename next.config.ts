@@ -1,4 +1,7 @@
 import type { NextConfig } from "next";
+const isGithubPages = process.env.GITHUB_PAGES === 'true';
+
+const repo = 'urdudictinory'; // ✅ Your GitHub repo name
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -9,8 +12,8 @@ const nextConfig: NextConfig = {
     
   },
   output: 'export',
-  basePath: 'urdudictinory',
-  // assetPrefix: isGithubPages ? `/${repo}/` : '',
+  basePath: isGithubPages ? `/${repo}` : '',
+  assetPrefix: isGithubPages ? `/${repo}/` : '',
 };
 
 export default nextConfig;
