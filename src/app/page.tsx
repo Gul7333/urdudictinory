@@ -1,6 +1,5 @@
 import Link from "next/link";
 import FullCard from "@/components/card";
-import { getDictionaryData } from "@/lib/dictionory";
 import { dictionaryData } from "@/db";
 
 export  default async function Home()  {

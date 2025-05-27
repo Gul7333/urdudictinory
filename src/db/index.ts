@@ -7,5 +7,5 @@ import { getDictionaryData } from "@/lib/dictionory";
 const data: JsonData[] = require("../db/onlytest.json");
 
 
-export const dictionaryData: JsonData[] = data;
-// export const dictionaryData: JsonData[] = await  getDictionaryData()
+// export const dictionaryData: JsonData[] = data;
+export const dictionaryData: JsonData[] = await  getDictionaryData()
