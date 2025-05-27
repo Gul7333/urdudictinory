@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
-
+// export const revalidate = 60
 export function generateStaticParams() {
   const slugs = dictionaryData.slice(0,500)
     .filter((item) => item && item[1]) // Filter out null/undefined and missing index
