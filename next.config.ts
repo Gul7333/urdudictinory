@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
     
   },
   output: 'export',
-  basePath: isGithubPages ? `/${repo}` : '',
+  basePath: `/${repo}`,
   assetPrefix: `/${repo}/`,
 };
 
