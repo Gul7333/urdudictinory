@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
   },
   output: 'export',
   basePath: isGithubPages ? `/${repo}` : '',
-  assetPrefix: isGithubPages ? `/${repo}/` : '',
+  assetPrefix: `/${repo}/`,
 };
 
 export default nextConfig;
