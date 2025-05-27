@@ -8,10 +8,10 @@ interface PageProps {
 }
 // export const revalidate = 60
 export function generateStaticParams() {
-  const slugs = dictionaryData.slice(0,500)
+  const slugs = dictionaryData.slice(0,5000)
     .filter((item) => item && item[1]) // Filter out null/undefined and missing index
     .map((item) => ({
-      slug: encodeURIComponent(item[1]),
+      slug: item[1],
     }));
 
   return slugs;
