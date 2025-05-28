@@ -4,6 +4,7 @@ import "./globals.css";
 import Image from "next/image";
 import Link from "next/link";
 import SearchBar from "../components/Searchbar";
+import AlphabetNav from "@/components/AlphabetNav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,17 +37,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${notoNastaliqUrdu.variable} antialiased font-urdu`}
         >
-        <nav className="flex items-center justify-between px-6 py-4 shadow-md bg-white">
-          <Link href="/">
-            <h1 className="text-blue-600 text-xl font-bold">اردو لغت</h1>
-          </Link>
-          <Image
-            src="/menu-alt-04-svgrepo-com.svg"
-            alt="Menu icon"
-            width={30}
-            height={30}
-          />
-        </nav>
+      
+        <AlphabetNav/>
         <header className="px-6 mt-6 text-center">
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800">
             Very Large and Concise Dictionary of Urdu

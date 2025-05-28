@@ -8,4 +8,4 @@ import { getDictionaryData } from "@/lib/dictionory";
 
 
 // export const dictionaryData: JsonData[] = data;
-export const dictionaryData: JsonData[] = await  getDictionaryData()
+export const dictionaryData: JsonData[] = await getDictionaryData()
