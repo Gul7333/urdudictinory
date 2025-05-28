@@ -2,16 +2,24 @@ import Link from "next/link";
 import { dictionaryData } from "@/db";
 import MiniCard from "@/components/MiniCard";
 
+
+
+// props 
+interface PageProps {
+    params: Promise<{ page: string }>;
+  }
+
+
 export async function generateStaticParams() {
-  const perPage = 100;
+  const perPage = 40;
   const totalPages = Math.ceil(dictionaryData.length / perPage);
   return Array.from({ length: totalPages }, (_, i) => ({
     page: String(i + 1),
   }));
 }
 
-export default function Page({ params }: { params: { page: string } }) {
-  const page = parseInt(params.page, 10);
+export default  async function Page({ params }:  PageProps) {
+  const page = parseInt( (await params).page, 10);
   const perPage = 40;
   const start = (page - 1) * perPage;
   const end = page * perPage;
