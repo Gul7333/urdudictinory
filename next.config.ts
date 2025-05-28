@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
-const isGithubPages = process.env.GITHUB_PAGES === 'true';
+// const isGithubPages = process.env.GITHUB_PAGES === 'true';
 
-const repo = 'urdudictinory'; // ✅ Your GitHub repo name
+// const repo = 'urdudictinory'; // ✅ Your GitHub repo name
 
 const nextConfig: NextConfig = {
   /* config options here */
