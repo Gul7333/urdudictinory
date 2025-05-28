@@ -15,10 +15,10 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: {
-  params: { letter: string };
-}): Promise<Metadata> {
-  const letter = decodeURIComponent(params.letter);
+}: 
+  PageProps
+): Promise<Metadata> {
+  const letter = decodeURIComponent((await params).letter);
   const words = getWordsBySpecificLetter(letter);
   
   return {
