@@ -37,7 +37,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${notoNastaliqUrdu.variable} antialiased font-urdu`}
       >
-        <MainNav />
+        {/* <MainNav /> */}
         <header className="px-6 mt-6 text-center">
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800">
             Very Large and Concise Dictionary of Urdu
