@@ -15,7 +15,7 @@ export const getWordsByLetter = (): Record<string, JsonData[]> => {
   urduAlphabet.forEach(letter => {
     categorized[letter] = dictionaryData
       .filter(word => word[1].startsWith(letter)) // Assuming word[1] contains the Urdu word
-      .sort((a, b) => a[1].localeCompare(b[1])); // Sort Urdu words alphabetically
+      .sort(); // Sort Urdu words alphabetically
   });
 
   return categorized;
