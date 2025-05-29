@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Noto_Nastaliq_Urdu } from "next/font/google";
 import "./globals.css";
-import Image from "next/image";
-import Link from "next/link";
 import SearchBar from "../components/Searchbar";
 import AlphabetNav from "@/components/AlphabetNav";
 
@@ -36,18 +34,15 @@ export default function RootLayout({
     <html lang="ur" dir="rtl">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${notoNastaliqUrdu.variable} antialiased font-urdu`}
-        >
-      
-        <AlphabetNav/>
+      >
+        <AlphabetNav />
         <header className="px-6 mt-6 text-center">
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800">
             Very Large and Concise Dictionary of Urdu
           </h2>
-        <SearchBar /> {/* ⬅️ Appears on all pages */}
+          <SearchBar /> {/* ⬅️ Appears on all pages */}
         </header>
-           
 
-        
         <main className="px-2 max-w-4xl mx-auto mt-6">{children}</main>
       </body>
     </html>
