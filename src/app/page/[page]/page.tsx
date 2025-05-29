@@ -1,3 +1,4 @@
+// src/app/page/[page]/page.tsx
 import Link from "next/link";
 import { dictionaryData } from "@/db";
 import MiniCard from "@/components/MiniCard";

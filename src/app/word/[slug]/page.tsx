@@ -8,14 +8,14 @@ interface PageProps {
 }
 // export const revalidate = 60
 export function generateStaticParams() {
-  const slugs = dictionaryData
+  return dictionaryData
     .slice(0, 1000)
     .filter((item) => item && item[1]) // Filter out null/undefined and missing index
     .map((item) => ({
       slug: item[1],
     }));
 
-  return slugs;
+  
 }
 
 // ✅ Metadata generation (async + promise-based params)

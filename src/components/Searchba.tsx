@@ -75,3 +75,7 @@ export default function SearchBa() {
     </div>
   );
 }
+
+
+
+

@@ -1,3 +1,4 @@
+// categories/
 import Link from 'next/link';
 import { getLetterCounts } from '@/lib/words';
 

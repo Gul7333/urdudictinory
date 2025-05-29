@@ -35,3 +35,26 @@ export const getLetterCounts = () => {
     count: words.length
   }));
 };
+
+
+
+
+
+
+
+
+
+// // Accept dictionary data as argument
+// export const getWordsByLetter = (dictionaryData: JsonData[]): Record<string, JsonData[]> => {
+//   const categorized: Record<string, JsonData[]> = {};
+
+//   urduAlphabet.forEach(letter => {
+//     categorized[letter] = dictionaryData
+//       .filter(word => word[1].startsWith(letter))
+//       .sort((a, b) => a[1].localeCompare(b[1]));
+//   });
+
+//   return categorized;
+// };
+
+

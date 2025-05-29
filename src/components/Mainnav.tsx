@@ -1,4 +1,4 @@
-// components/MainNav.tsx
+// src/components/Mainnav.tsx
 'use client';
 
 import { useState } from 'react';

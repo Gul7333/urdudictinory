@@ -1,3 +1,4 @@
+// categories/[letter]/page.tsx
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getWordsBySpecificLetter, urduAlphabet } from '@/lib/words';
