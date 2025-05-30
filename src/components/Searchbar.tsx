@@ -3,6 +3,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useEffect, Suspense } from "react";
 
+
 export  function SearchBa() {
   const router = useRouter();
   const searchParams = useSearchParams();

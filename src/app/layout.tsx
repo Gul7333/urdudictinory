@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Noto_Nastaliq_Urdu } from "next/font/google";
 import "./globals.css";
 import MainNav from "@/components/Mainnav";
-import { Suspense } from "react";
-import SearchBa from "@/components/Searchbar";
-import SearchBar from "@/components/Searchbar";
+
+import SearchBarWrapper from "@/components/SearchBarWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,7 +42,7 @@ export default function RootLayout({
             Very Large and Concise Dictionary of Urdu
           </h2>
          
-          <SearchBar /> ⬅️ Appears on all pages
+          <SearchBarWrapper /> 
         </header>
 
         <main className="px-2 max-w-4xl mx-auto mt-6">{children}</main>
