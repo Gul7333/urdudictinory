@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Noto_Nastaliq_Urdu } from "next/font/google";
 import "./globals.css";
 import MainNav from "@/components/Mainnav";
+const words = require("./../../public/words.json") as string[]
+
 
 import SearchBarWrapper from "@/components/SearchBarWrapper";
 import SearchBar from "@/components/Searchbar";
@@ -21,7 +23,6 @@ const notoNastaliqUrdu = Noto_Nastaliq_Urdu({
   variable: "--font-nastaleeq",
   subsets: ["arabic"],
 });
-const words = await listofword()
 export const metadata: Metadata = {
   title: "اردو لغت - Urdu Dictionary for Word Meanings & Definitions",
   description:
