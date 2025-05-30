@@ -4,19 +4,19 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useEffect, Suspense } from "react";
 
 
-export  function SearchBa({words}:{words: string[]}) {
+export  function SearchBa() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [query, setQuery] = useState("");
-  const [allWords, setAllWords] = useState<string[]>(words);
+  const [allWords, setAllWords] = useState<string[]>();
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
-  // useEffect(() => {
-  //   fetch("/words.json")
-  //     .then((res) => res.json())
-  //     .then((data) => setAllWords(data));
-  // }, []);
+  useEffect(() => {
+    fetch("./../../public/words.json")
+      .then((res) => res.json())
+      .then((data) => setAllWords(data));
+  }, []);
 
   useEffect(() => {
     const word = searchParams.get("word");
@@ -82,10 +82,10 @@ export  function SearchBa({words}:{words: string[]}) {
 
 
 // searchh bar is client side , and uses useSearchparams
-export default function SearchBar({words}:{words: string[]}) {
+export default function SearchBar() {
   return (
     <Suspense fallback={<div>Loading search...</div>}>
-      <SearchBa words={words} />
+      <SearchBa  />
     </Suspense>
   );
 }

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Noto_Nastaliq_Urdu } from "next/font/google";
 import "./globals.css";
 import MainNav from "@/components/Mainnav";
-const words = require("./../../public/words.json") as string[]
 
 
 import SearchBarWrapper from "@/components/SearchBarWrapper";
@@ -46,7 +45,7 @@ export default function RootLayout({
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800">
             Very Large and Concise Dictionary of Urdu
           </h2>
-         <SearchBar words={words} />
+         <SearchBar  />
         </header>
 
         <main className="px-2 max-w-4xl mx-auto mt-6">{children}</main>
