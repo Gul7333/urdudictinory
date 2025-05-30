@@ -8,7 +8,7 @@ export  function SearchBa() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [query, setQuery] = useState("");
-  const [allWords, setAllWords] = useState<string[]>();
+  const [allWords, setAllWords] = useState<string[]>([]);
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
