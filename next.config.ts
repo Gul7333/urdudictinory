@@ -4,6 +4,9 @@ import type { NextConfig } from "next";
 // const repo = 'urdudictinory'; // ✅ Your GitHub repo name
 
 const nextConfig: NextConfig = {
+  env: {
+    DATA_SOURCE: process.env.DATA_SOURCE || 'remote', // default fallback
+  },
   /* config options here */
   eslint: {
     // Warning: This allows production builds to successfully complete even if
