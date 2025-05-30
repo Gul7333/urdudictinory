@@ -4,6 +4,8 @@ import "./globals.css";
 import MainNav from "@/components/Mainnav";
 
 import SearchBarWrapper from "@/components/SearchBarWrapper";
+import SearchBar from "@/components/Searchbar";
+import { listofword } from "@/lib/dictionory";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,7 +21,7 @@ const notoNastaliqUrdu = Noto_Nastaliq_Urdu({
   variable: "--font-nastaleeq",
   subsets: ["arabic"],
 });
-
+const words = await listofword()
 export const metadata: Metadata = {
   title: "اردو لغت - Urdu Dictionary for Word Meanings & Definitions",
   description:
@@ -31,6 +33,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  
   return (
     <html lang="ur" dir="rtl">
       <body
@@ -41,8 +45,7 @@ export default function RootLayout({
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800">
             Very Large and Concise Dictionary of Urdu
           </h2>
-         
-          <SearchBarWrapper /> 
+         <SearchBar words={words} />
         </header>
 
         <main className="px-2 max-w-4xl mx-auto mt-6">{children}</main>
