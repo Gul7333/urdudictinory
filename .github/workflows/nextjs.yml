@@ -77,6 +77,8 @@ jobs:
         env:
          ACCOUNT_ID: ${{ secrets.ACCOUNT_ID}}
          ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID}}
+         SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY}}
+  
         run: ${{ steps.detect-package-manager.outputs.runner }} next build --no-lint
 
       - name: Upload artifact
