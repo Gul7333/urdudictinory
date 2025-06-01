@@ -1,4 +1,5 @@
-import FullCard from "@/components/card"; 
+import FullCard from "@/components/card"; // Adjust path as needed
+// import { getDictionaryData } from "@/lib/dictionory";
 import { dictionaryData } from "@/db";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -13,7 +14,8 @@ export function generateStaticParams() {
       slug: item[1],
     }));  
 }
-// ✅ Detailed Bilingual Metadata for Urdu Dictionary
+
+// ✅ Metadata generation (async + promise-based params)
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
@@ -23,40 +25,14 @@ export async function generateMetadata({
 
   if (!match) {
     return {
-      title: `Word Not Found – Urdu Dictionary | لفظ نہیں ملا`,
-      description: `The word "${word}" could not be found in our Urdu Dictionary. Try searching a different word. 
-      ہماری اردو لغت میں "${word}" دستیاب نہیں ہے۔ براہ کرم کوئی اور لفظ تلاش کریں۔`,
+      title: `Word Not Found - Urdu Dictionary`,
+      description: `No entry found for '${word}' in the Urdu Dictionary.`,
     };
   }
 
   return {
-    title: `${match[1]} – Meaning, Definition, Synonyms & Usage | ${match[1]} کا مطلب، تعریف اور مترادفات`,
-    description: `Discover the complete meaning of "${match[1]}" in Urdu. Explore definitions, synonyms, word usage in sentences, and more. 
-    اردو لغت میں "${match[1]}" کا مکمل مطلب، مترادفات، جملوں میں استعمال، اور مزید تفصیلات حاصل کریں۔`,
-    keywords: [
-      match[1],
-      `${match[1]} meaning`,
-      `${match[1]} in Urdu`,
-      `${match[1]} ka matlab`,
-      `Urdu dictionary`,
-      `اردو لغت`,
-      `Urdu words`,
-      `${match[1]} definition`,
-      `${match[1]} usage in Urdu`,
-      `${match[1]} مترادفات`,
-    ],
-    openGraph: {
-      title: `${match[1]} – Urdu Meaning | ${match[1]} کا مطلب`,
-      description: `Explore detailed information about "${match[1]}" including definition, synonyms, and usage. 
-      اردو میں "${match[1]}" کی مکمل تفصیل جانیں۔`,
-      type: 'website',
-      locale: 'en_PK',
-    },
-    twitter: {
-      title: `${match[1]} – Urdu Meaning | ${match[1]} کا مطلب`,
-      description: `Learn the Urdu meaning, definition, synonyms, and usage of the word "${match[1]}". اردو میں مکمل تفصیل پڑھیں۔`,
-      card: 'summary_large_image',
-    },
+    title: `${match[1]} - Meaning, Definition & Usage | Urdu Dictionary`,
+    description: `Explore the meaning, definition, and usage of the Urdu word '${match[1]}'. Learn detailed information in our online Urdu Dictionary.`,
   };
 }
 
@@ -70,8 +46,8 @@ export default async function WordPage({ params }: PageProps) {
   if (!match) return notFound();
 
   return (
-  
+    <main>
       <FullCard item={match} />
-    
+    </main>
   );
 }
