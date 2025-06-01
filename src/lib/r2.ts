@@ -18,7 +18,7 @@ const ACCESS_KEY_ID = process.env.ACCESS_KEY_ID || ""
       secretAccessKey: SECRET_ACCESS_KEY,
     },
   });
-  
+  ///
   // console.log(await S3.send(new ListBucketsCommand({})));
   // // {
   // //     '$metadata': {
