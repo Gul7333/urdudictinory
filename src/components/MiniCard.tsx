@@ -5,7 +5,7 @@ function safeJsonParse<T>(value: string | null | undefined, fallback: T): T {
     if (!value) return fallback;
     return JSON.parse(value);
   } catch {
-    return fallback;
+    return fallback; 
   }
 }
 
