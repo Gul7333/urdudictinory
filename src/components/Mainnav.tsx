@@ -27,7 +27,7 @@ export default function MainNav() {
           
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none"
+            className=" p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none"
             aria-label="Open menu"
           >
             <svg
@@ -57,7 +57,7 @@ export default function MainNav() {
         </div>
 
         {/* Alphabet Navigation - Desktop */}
-        <div className="hidden md:flex flex-wrap justify-center gap-2 mt-4">
+        {/* <div className="hidden md:flex flex-wrap justify-center gap-2 mt-4">
           {urduAlphabet.map(letter => (
             <Link
               key={letter}
@@ -72,11 +72,11 @@ export default function MainNav() {
               {letter}
             </Link>
           ))}
-        </div>
+        </div> */}
 
         {/* Mobile Menu (Dropdown) */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4">
+          <div className=" mt-4 pb-4">
             <div className="grid grid-cols-5 gap-2">
               {urduAlphabet.map(letter => (
                 <Link
