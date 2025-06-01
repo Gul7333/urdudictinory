@@ -9,7 +9,7 @@ import { Readable } from "stream";
 const ACCOUNT_ID = process.env.ACCOUNT_ID || ""
 const ACCESS_KEY_ID = process.env.ACCESS_KEY_ID || ""
 console.log(ACCESS_KEY_ID)
-  const SECRET_ACCESS_KEY = "efb063a3b09b96e60b2cf62aaff30b4467a932675b9e7cd7ecdd2874ef12d3bb"
+  const SECRET_ACCESS_KEY = process.env.SECRET_ACCESS_KEY || ""
   const S3 = new S3Client({
     region: "auto",
     endpoint: `https://${ACCOUNT_ID}.r2.cloudflarestorage.com`,
