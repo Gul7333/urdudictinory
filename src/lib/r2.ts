@@ -8,7 +8,7 @@ import {
 import { Readable } from "stream";
 const ACCOUNT_ID = process.env.ACCOUNT_ID || ""
 const ACCESS_KEY_ID = process.env.ACCESS_KEY_ID || ""
-
+console.log(ACCESS_KEY_ID)
   const SECRET_ACCESS_KEY = "efb063a3b09b96e60b2cf62aaff30b4467a932675b9e7cd7ecdd2874ef12d3bb"
   const S3 = new S3Client({
     region: "auto",
@@ -18,7 +18,7 @@ const ACCESS_KEY_ID = process.env.ACCESS_KEY_ID || ""
       secretAccessKey: SECRET_ACCESS_KEY,
     },
   });
-  ///
+  
   // console.log(await S3.send(new ListBucketsCommand({})));
   // // {
   // //     '$metadata': {
