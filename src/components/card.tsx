@@ -12,10 +12,10 @@ function safeJsonParse<T>(value: string | null | undefined, fallback: T): T {
 export default function FullCard({ item }: { item: JsonData }) {
   const details = item[4];
 
-  let meaningtitles: string[] = safeJsonParse(details.meaningstitles,[])
-  let meaningdetails: string[] = safeJsonParse(details.meaningdetails,[])
-  let noun: string[] = safeJsonParse(details.noun,[])
-  let nountypes: string[] = safeJsonParse(details.nountypes,[])
+  const meaningtitles: string[] = safeJsonParse(details.meaningstitles,[])
+  const meaningdetails: string[] = safeJsonParse(details.meaningdetails,[])
+  const noun: string[] = safeJsonParse(details.noun,[])
+  const nountypes: string[] = safeJsonParse(details.nountypes,[])
 
   
 

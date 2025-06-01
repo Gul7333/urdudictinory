@@ -6,11 +6,10 @@ import {
     PutObjectCommand,
   } from "@aws-sdk/client-s3";
 import { Readable } from "stream";
+const ACCOUNT_ID = process.env.ACCOUNT_ID || ""
+const ACCESS_KEY_ID = process.env.ACCESS_KEY_ID || ""
 
-const token = "m4MR2srlxt73Zrpf9VXB2Umvi-TADKQHwmLpzEwR"
-  const ACCESS_KEY_ID = "391909881cc29445755ba798c4eaa531"
   const SECRET_ACCESS_KEY = "efb063a3b09b96e60b2cf62aaff30b4467a932675b9e7cd7ecdd2874ef12d3bb"
-  const ACCOUNT_ID = "6f4b4eb55199f274d0b3b6d454bf5445"
   const S3 = new S3Client({
     region: "auto",
     endpoint: `https://${ACCOUNT_ID}.r2.cloudflarestorage.com`,

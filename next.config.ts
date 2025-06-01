@@ -6,12 +6,14 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   env: {
     DATA_SOURCE: process.env.DATA_SOURCE || 'remote', // default fallback
+     ACCOUNT_ID : process.env.ACCOUNT_ID || "",
+ ACCESS_KEY_ID : process.env.ACCESS_KEY_ID || ""
   },
   /* config options here */
   eslint: {
     // Warning: This allows production builds to successfully complete even if
     // your project has ESLint errors.
-    ignoreDuringBuilds: true,
+    // ignoreDuringBuilds: true,
     
   },
   images: {
@@ -21,9 +23,6 @@ const nextConfig: NextConfig = {
   basePath: `/urdudictinory`,
   assetPrefix: `/urdudictinory`,
   // trailingSlash: true
-  
-  
-
 };
 
 export default nextConfig;
