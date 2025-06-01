@@ -1,11 +1,12 @@
-// db/index.ts
-// import type { JsonData } from "@/types"; // if you have a type file
-
 import { getDictionaryData } from "@/lib/dictionory";
 
-// import data from "./onlytest.json";
-// const data: JsonData[] = require("../db/onlytest.json");
+let data: JsonData[];
 
+if (process.env.DATA_SOURCE === "remote") {
+  data = await getDictionaryData(); // fetch from API or remote JSON
+} else {
+  // Local fallback
+  data = require("./onlytest.json") as JsonData[];
+}
 
-// export const dictionaryData: JsonData[] = data;
-export const dictionaryData: JsonData[] = await getDictionaryData()
+export const dictionaryData: JsonData[] = data;
