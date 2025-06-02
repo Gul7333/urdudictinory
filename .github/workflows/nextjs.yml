@@ -76,9 +76,9 @@ jobs:
          SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY}}
  
         # this works
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build --no-lint
+        # run: ${{ steps.detect-package-manager.outputs.runner }} next build --no-lint
           #   this doest work, give error in post restore cacahe 
-        # run: node --stack-size=8192 node_modules/.bin/next build --no-lint
+        run: node --stack-size=8192 node_modules/.bin/next build --no-lint
 
 
       - name: Upload artifact
