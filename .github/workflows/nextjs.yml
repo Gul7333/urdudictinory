@@ -79,7 +79,7 @@ jobs:
          ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID}}
          SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY}}
   
-        run: node --stack-size=8192 node_modules/.bin/next build --no-lint
+        run: ${{ steps.detect-package-manager.outputs.runner }} --stack-size=8192 next build --no-lint
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
