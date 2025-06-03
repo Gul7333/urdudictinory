@@ -19,7 +19,6 @@ const nextConfig: NextConfig = {
     unoptimized: true, // Required for static export to handle images
   },
   output: 'export',
-  basePath: `/urdudictinory`,
   // assetPrefix: `/urdudictinory`,
   // trailingSlash: true
 };
