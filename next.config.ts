@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
   },
   output: 'export',
   basePath: `/urdudictinory`,
-  assetPrefix: `/urdudictinory`,
+  // assetPrefix: `/urdudictinory`,
   // trailingSlash: true
 };
 

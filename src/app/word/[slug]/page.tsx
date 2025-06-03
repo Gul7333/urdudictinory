@@ -8,7 +8,7 @@ interface PageProps {
 }
 // export const revalidate = 60
 export function generateStaticParams() {
-  const slugs = dictionaryData.slice(0,1000)
+  const slugs = dictionaryData
     .filter((item) => item && item[1]) // Filter out null/undefined and missing index
     .map((item) => ({
       slug: item[1],
@@ -16,7 +16,7 @@ export function generateStaticParams() {
     return slugs
 }
 
-// ✅ Metadata generation (async + promise-based params)
+// ✅ Bilingual Metadata for urduzaban.pk with Social Media Optimization
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
@@ -24,16 +24,77 @@ export async function generateMetadata({
   const word = decodeURIComponent(slug);
   const match = dictionaryData.find((item) => item[1] === word);
 
+  // Base URL for all links
+  const baseUrl = 'https://urduzaban.pk';
+  const pageUrl = `${baseUrl}/dictionary/${slug}`;
+
+  // Default images (replace with your actual image paths)
+  const ogImage = `${baseUrl}/images/og-urdu-dictionary.jpg`;
+  const twitterImage = `${baseUrl}/images/twitter-urdu-dictionary.jpg`;
+
   if (!match) {
     return {
-      title: `Word Not Found - Urdu Dictionary`,
-      description: `No entry found for '${word}' in the Urdu Dictionary.`,
+      title: `لفظ نہیں ملا - UrduZaban.pk | Word Not Found - Urdu Dictionary`,
+      description: `'${word}' کا کوئی اندراج اردو لغت میں موجود نہیں ہے۔ | No entry found for '${word}' in the Urdu Dictionary.`,
+      alternates: {
+        canonical: pageUrl,
+      },
+      openGraph: {
+        title: `لفظ نہیں ملا - UrduZaban.pk | Word Not Found`,
+        description: `'${word}' کا کوئی اندراج اردو لغت میں موجود نہیں ہے۔ | No entry found for '${word}'.`,
+        url: pageUrl,
+        siteName: 'UrduZaban.pk | اردو زبان',
+        locale: 'ur_PK', // Urdu locale for Pakistan
+        type: 'website',
+        images: [{
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: 'UrduZaban.pk - اردو لغت اور زبان کا مرجع',
+        }],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: `لفظ نہیں ملا - UrduZaban.pk`,
+        description: `'${word}' کا کوئی اندراج نہیں ملا | Word not found in Urdu Dictionary.`,
+        images: [twitterImage],
+      },
     };
   }
 
+  // Bilingual titles/descriptions
+  const urduTitle = `${match[1]} - معنی، تعریف اور استعمال | UrduZaban.pk`;
+  const englishTitle = `${match[1]} - Meaning, Definition & Usage | Urdu Dictionary`;
+  
+  const urduDescription = `لفظ '${match[1]}' کی مکمل معنی، تعریف اور استعمال جانئے۔ UrduZaban.pk پر اردو لغت میں تفصیلات دیکھیں۔`;
+  const englishDescription = `Learn the meaning, definition, and usage of '${match[1]}' in Urdu. Explore details on UrduZaban.pk.`;
+
   return {
-    title: `${match[1]} - Meaning, Definition & Usage | Urdu Dictionary`,
-    description: `Explore the meaning, definition, and usage of the Urdu word '${match[1]}'. Learn detailed information in our online Urdu Dictionary.`,
+    title: `${englishTitle} | ${urduTitle}`, // Dual-language title
+    description: `${englishDescription} | ${urduDescription}`,
+    alternates: {
+      canonical: pageUrl,
+    },
+    openGraph: {
+      title: `${englishTitle} | ${urduTitle}`,
+      description: `${englishDescription} | ${urduDescription}`,
+      url: pageUrl,
+      siteName: 'UrduZaban.pk | اردو زبان',
+      locale: 'ur_PK',
+      type: 'website',
+      images: [{
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: `Urdu Word: ${match[1]} - UrduZaban.pk`,
+      }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${englishTitle} | ${urduTitle}`,
+      description: `${englishDescription} | ${urduDescription}`,
+      images: [twitterImage],
+    },
   };
 }
 
@@ -47,8 +108,9 @@ export default async function WordPage({ params }: PageProps) {
   if (!match) return notFound();
 
   return (
-    <main>
+    <>
       <FullCard item={match} />
-    </main>
+      <button className="mt-8 p-2.5 rounded-2xl bg-blue-500 ">Read all word starting with {match[1][0]}</button>
+    </>
   );
 }
