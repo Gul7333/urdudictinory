@@ -26,47 +26,48 @@ export async function generateMetadata({
 
   // Base URL for all links
   const baseUrl = 'https://urduzaban.pk';
-  const pageUrl = `${baseUrl}/dictionary/${slug}`;
+  const pageUrl = `${baseUrl}/word/${slug}`;
 
   // Default images (replace with your actual image paths)
-  const ogImage = `${baseUrl}/images/og-urdu-dictionary.jpg`;
-  const twitterImage = `${baseUrl}/images/twitter-urdu-dictionary.jpg`;
+  const ogImage = `${baseUrl}/og.png`;
+  const twitterImage = `${baseUrl}/og.png`;
 
   if (!match) {
     return {
-      title: `لفظ نہیں ملا - UrduZaban.pk | Word Not Found - Urdu Dictionary`,
+      title: `${word} - UrduZaban.pk | Urdu Dictionary`,
       description: `'${word}' کا کوئی اندراج اردو لغت میں موجود نہیں ہے۔ | No entry found for '${word}' in the Urdu Dictionary.`,
       alternates: {
         canonical: pageUrl,
       },
-      openGraph: {
-        title: `لفظ نہیں ملا - UrduZaban.pk | Word Not Found`,
-        description: `'${word}' کا کوئی اندراج اردو لغت میں موجود نہیں ہے۔ | No entry found for '${word}'.`,
-        url: pageUrl,
-        siteName: 'UrduZaban.pk | اردو زبان',
-        locale: 'ur_PK', // Urdu locale for Pakistan
-        type: 'website',
-        images: [{
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: 'UrduZaban.pk - اردو لغت اور زبان کا مرجع',
-        }],
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title: `لفظ نہیں ملا - UrduZaban.pk`,
-        description: `'${word}' کا کوئی اندراج نہیں ملا | Word not found in Urdu Dictionary.`,
-        images: [twitterImage],
-      },
-    };
+    //   openGraph: {
+    //     title: `لفظ نہیں ملا - UrduZaban.pk | Word Not Found`,
+    //     description: `'${word}' کا کوئی اندراج اردو لغت میں موجود نہیں ہے۔ | No entry found for '${word}'.`,
+    //     url: pageUrl,
+    //     siteName: 'UrduZaban.pk | اردو زبان',
+    //     locale: 'ur_PK', // Urdu locale for Pakistan
+    //     type: 'website',
+    //     images: [{
+    //       url: ogImage,
+    //       width: 1200,
+    //       height: 630,
+    //       alt: 'UrduZaban.pk - اردو لغت اور زبان کا مرجع',
+    //     }],
+    //   },
+    //   twitter: {
+    //     card: 'summary_large_image',
+    //     title: `لفظ نہیں ملا - UrduZaban.pk`,
+    //     description: `'${word}' کا کوئی اندراج نہیں ملا | Word not found in Urdu Dictionary.`,
+    //     images: [twitterImage],
+    //   },
+    // };
+    }
   }
 
   // Bilingual titles/descriptions
-  const urduTitle = `${match[1]} - معنی، تعریف اور استعمال | UrduZaban.pk`;
+  const urduTitle = `${match[1]} کے معنی، تعریف اور استعمال | UrduZaban.pk`;
   const englishTitle = `${match[1]} - Meaning, Definition & Usage | Urdu Dictionary`;
   
-  const urduDescription = `لفظ '${match[1]}' کی مکمل معنی، تعریف اور استعمال جانئے۔ UrduZaban.pk پر اردو لغت میں تفصیلات دیکھیں۔`;
+  const urduDescription = `لفظ '${match[1]}' urduzaban.pk - کی مکمل معنی، تعریف اور استعمال جانیئے - اردو زبان لغت میں تفصیلات دیکھیں۔`;
   const englishDescription = `Learn the meaning, definition, and usage of '${match[1]}' in Urdu. Explore details on UrduZaban.pk.`;
 
   return {
@@ -95,18 +96,7 @@ export async function generateMetadata({
       description: `${englishDescription} | ${urduDescription}`,
       images: [twitterImage],
     },
-    other: {
-      // Inject JSON-LD schema
-      'ld+json': JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "DefinedTerm",
-        name: match[1],
-        description: match[3] + (match[4].meaningstitles ? ` (${match[4].meaningstitles})` : ""),
-        url: `https://urduzaban.pk/word/${slug}`,
-        inDefinedTermSet: "https://urduzaban.pk/lughat",
-        termCode: slug
-      })
-    }
+
   };
 }
 

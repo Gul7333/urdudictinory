@@ -13,7 +13,7 @@ export  function SearchBa() {
   const [showSuggestions, setShowSuggestions] = useState(false);
 
   useEffect(() => {
-    fetch("/urdudictinory/words.json")
+    fetch("/words.json")
       .then((res) => res.json())
       .then((data) => setAllWords(data));
   }, []);
