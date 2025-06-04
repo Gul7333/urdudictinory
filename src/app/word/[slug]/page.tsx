@@ -95,6 +95,18 @@ export async function generateMetadata({
       description: `${englishDescription} | ${urduDescription}`,
       images: [twitterImage],
     },
+    other: {
+      // Inject JSON-LD schema
+      'ld+json': JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "DefinedTerm",
+        name: match[1],
+        description: match[3] + (match[4].meaningstitles ? ` (${match[4].meaningstitles})` : ""),
+        url: `https://urduzaban.pk/word/${slug}`,
+        inDefinedTermSet: "https://urduzaban.pk/lughat",
+        termCode: slug
+      })
+    }
   };
 }
 

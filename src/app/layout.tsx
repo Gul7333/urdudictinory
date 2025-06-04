@@ -23,9 +23,9 @@ const notoNastaliqUrdu = Noto_Nastaliq_Urdu({
   subsets: ["arabic"],
 });
 export const metadata: Metadata = {
-  title: "اردو لغت - Urdu Dictionary for Word Meanings & Definitions",
+  title: "اردو زبان لغت – Urdu Zaban Lughat | Urdu Dictionary with Meanings & Definitions",
   description:
-    "Explore thousands of Urdu words with English meanings, definitions, and detailed explanations. Best online Urdu dictionary for students & researchers.",
+    "ہزاروں اردو الفاظ کے انگریزی معانی، تعریفات، مترادفات اور مثالوں کے ساتھ تلاش کریں۔ Discover thousands of Urdu words with English meanings, definitions, synonyms, and examples. ایک جامع آن لائن اردو لغت طلبا، محققین، اور ادیبوں کے لیے۔",
 };
 
 export default function RootLayout({

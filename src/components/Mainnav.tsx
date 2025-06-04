@@ -22,7 +22,7 @@ export default function MainNav() {
         {/* Mobile Header with Hamburger */}
         <div className="flex items-center justify-between">
           <Link href="/" className="text-2xl font-bold font-urdu text-blue-800">
-            اردو لغت
+            اردو زبان لغت
           </Link>
           
           <button
