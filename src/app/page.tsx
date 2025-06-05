@@ -3,6 +3,7 @@ import Link from "next/link";
 import FullCard from "@/components/card";
 import { dictionaryData } from "@/db";
 import MiniCard from "@/components/MiniCard";
+import HomeHeader from "@/components/HomeHeader";
 
 export default function Home() {
   const perPage = 40;
@@ -15,6 +16,7 @@ export default function Home() {
 
   return (
     <section className="rtl font-urdu flex flex-col gap-4 px-2 max-w-4xl mx-auto mt-10">
+      <HomeHeader/>
       {items.map((item, index) => (
         <Link href={`/word/${encodeURIComponent(item[1])}`} key={index}>
           <MiniCard item={item} />

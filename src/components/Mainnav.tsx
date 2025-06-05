@@ -1,33 +1,70 @@
 // src/components/Mainnav.tsx
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import SearchBar from "./Searchbar";
 const urduAlphabet = [
-  "ا", "آ", "ب", "پ", "ت", "ٹ", "ث", "ج", "چ", "ح",
-  "خ", "د", "ڈ", "ذ", "ر", "ڑ", "ز", "ژ", "س", "ش",
-  "ص", "ض", "ط", "ظ", "ع", "غ", "ف", "ق", "ک", "گ",
-  "ل", "م", "ن", "و", "ہ", "ھ", "ء", "ی", "ے"
+  "ا",
+  "آ",
+  "ب",
+  "پ",
+  "ت",
+  "ٹ",
+  "ث",
+  "ج",
+  "چ",
+  "ح",
+  "خ",
+  "د",
+  "ڈ",
+  "ذ",
+  "ر",
+  "ڑ",
+  "ز",
+  "ژ",
+  "س",
+  "ش",
+  "ص",
+  "ض",
+  "ط",
+  "ظ",
+  "ع",
+  "غ",
+  "ف",
+  "ق",
+  "ک",
+  "گ",
+  "ل",
+  "م",
+  "ن",
+  "و",
+  "ہ",
+  "ھ",
+  "ء",
+  "ی",
+  "ے",
 ];
 
 export default function MainNav() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const currentLetter = pathname.split('/').pop() || '';
+  const currentLetter = pathname.split("/").pop() || "";
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-3">
+    <nav className="bg-white shadow-md sticky top-0 z-50 px-3">
+      <div className="container mx-auto  py-3">
         {/* Mobile Header with Hamburger */}
         <div className="flex items-center justify-between">
+          
           <Link href="/" className="text-2xl font-bold font-urdu text-blue-800">
             اردو زبان لغت
           </Link>
-          
+
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className=" p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none"
+            className=" p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-amber-900 focus:outline-none"
             aria-label="Open menu"
           >
             <svg
@@ -55,38 +92,18 @@ export default function MainNav() {
             </svg>
           </button>
         </div>
-
-        {/* Alphabet Navigation - Desktop */}
-        {/* <div className="hidden md:flex flex-wrap justify-center gap-2 mt-4">
-          {urduAlphabet.map(letter => (
-            <Link
-              key={letter}
-              href={`/categories/${encodeURIComponent(letter)}`}
-              className={`text-xl p-2 min-w-9 text-center rounded transition-colors ${
-                decodeURIComponent(currentLetter) === letter
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 hover:bg-gray-200'
-              }`}
-              aria-current={decodeURIComponent(currentLetter) === letter ? 'page' : undefined}
-            >
-              {letter}
-            </Link>
-          ))}
-        </div> */}
-
-        {/* Mobile Menu (Dropdown) */}
         {isMenuOpen && (
           <div className=" mt-4 pb-4">
             <div className="grid grid-cols-5 gap-2">
-              {urduAlphabet.map(letter => (
+              {urduAlphabet.map((letter) => (
                 <Link
                   key={letter}
                   href={`/categories/${encodeURIComponent(letter)}`}
                   onClick={() => setIsMenuOpen(false)}
                   className={`text-xl p-2 text-center rounded transition-colors ${
                     decodeURIComponent(currentLetter) === letter
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-100 hover:bg-gray-200'
+                      ? "bg-blue-600 text-white"
+                      : "bg-gray-100 hover:bg-gray-200"
                   }`}
                 >
                   {letter}
@@ -96,6 +113,9 @@ export default function MainNav() {
           </div>
         )}
       </div>
+    
+        <SearchBar />
+      
     </nav>
   );
 }

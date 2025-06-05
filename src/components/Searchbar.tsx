@@ -38,7 +38,7 @@ export  function SearchBa() {
   };
 
   return (
-    <div className="mt-5 flex flex-col items-center gap-2 px-6 relative">
+    <div className="mt-1 grid grid-cols-[75%_25%] items-center  relative px-2">
       <input
         type="search"
         value={query}
@@ -49,7 +49,7 @@ export  function SearchBa() {
         onKeyDown={(e) => e.key === "Enter" && handleSearch()}
         onBlur={() => setTimeout(() => setShowSuggestions(false), 100)}
         placeholder="یہاں سرچ کریں"
-        className="p-3 py-4 border border-gray-300 rounded w-full md:w-2/3 text-right font-urdu"
+        className="px-3 py-2 border border-gray-300 rounded w-full font-bold text-right font-urdu leading-loose"
       />
       {showSuggestions && suggestions.length > 0 && (
         <ul className="absolute top-full mt-1 w-full md:w-2/3 bg-white border border-gray-300 rounded shadow z-10 max-h-60 overflow-auto">
@@ -69,7 +69,7 @@ export  function SearchBa() {
       )}
       <button
         onClick={handleSearch}
-        className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition"
+        className="bg-blue-600 text-white px-3 h-full rounded hover:bg-blue-700 transition text-center"
       >
         Search
       </button>

@@ -1,4 +1,5 @@
 import FullCard from "@/components/card"; // Adjust path as needed
+import ShareButton from "@/components/ShareButton";
 // import { getDictionaryData } from "@/lib/dictionory";
 import { dictionaryData } from "@/db";
 import { Metadata } from "next";
@@ -11,8 +12,8 @@ export function generateStaticParams() {
   const slugs = dictionaryData.slice(0,1000)
     .filter((item) => item && item[1]) // Filter out null/undefined and missing index
     .map((item) => ({
-      slug: item[1],
-    }));  
+      slug:item[1],
+    }));
     return slugs
 }
 
@@ -106,13 +107,51 @@ export default async function WordPage({ params }: PageProps) {
   const { slug } = await params;
   const word = decodeURIComponent(slug);
   const match = dictionaryData.find((item) => item[1] === word);
+ // Find index of the current word
+const currentIndex = dictionaryData.findIndex((item) => item[1] === word);
+
+// Get previous and next items safely
+const previousWord = currentIndex > 0 ? dictionaryData[currentIndex - 1] : null;
+const nextWord = currentIndex < dictionaryData.length - 1 ? dictionaryData[currentIndex + 1] : null;
+
 
   if (!match) return notFound();
 
   return (
     <>
-      <FullCard item={match} />
-      <button className="mt-8 p-2.5 rounded-2xl bg-blue-500 ">Read all word starting with {match[1][0]}</button>
+   <FullCard item={match} />
+
+<section className="text-center py-6">
+  {/* Related Alphabet List */}
+  <div className="flex justify-between">
+
+  <a href={`/words/${match[1][0]}`} className="inline-block">
+    <button className="mt-4 p-2.5 rounded-2xl bg-blue-500 text-white cursor-pointer hover:scale-105 transition">
+      {match[1][0]} سے شروع ہونے والے الفاظ کی فہرست
+    </button>
+  </a>
+  <ShareButton/>
+
+  </div>
+  {/* Interlinking: Previous and Next Words */}
+  <div className="flex justify-between gap-4 mt-6">
+    {previousWord && (
+      <a href={`/word/${encodeURIComponent(previousWord[1])}`}>
+        <button className="p-2 rounded bg-gray-200 hover:bg-gray-300">
+        {previousWord[1]}
+        </button>
+      </a>
+    )}
+    {nextWord && (
+      <a href={`/word/${encodeURIComponent(nextWord[1])}`}>
+        <button className="p-2 rounded bg-gray-200 hover:bg-gray-300">
+          {nextWord[1]} 
+        </button>
+      </a>
+    )}
+  </div>
+</section>
+
     </>
   );
 }
