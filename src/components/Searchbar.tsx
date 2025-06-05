@@ -26,7 +26,7 @@ export  function SearchBa() {
   useEffect(() => {
     if (!query.trim()) return setSuggestions([]);
     const filtered = allWords.filter((w) =>
-      w.toLowerCase().startsWith(query.toLowerCase())
+      w.startsWith(query)
     ).slice(0, 10);
     setSuggestions(filtered);
   }, [query, allWords]);
@@ -36,6 +36,13 @@ export  function SearchBa() {
     router.push(`/word/${encodeURIComponent(query.trim())}`);
     setShowSuggestions(false);
   };
+  const openSuggestion = (suggestion : string ) => {
+    setQuery(suggestion)
+    if (!suggestion.trim()) return;
+    router.push(`/word/${encodeURIComponent(suggestion.trim())}`);
+    setShowSuggestions(false);
+  };
+
 
   return (
     <div className="mt-1 grid grid-cols-[75%_25%] items-center  relative px-2">
@@ -56,10 +63,9 @@ export  function SearchBa() {
           {suggestions.map((suggestion) => (
             <li
               key={suggestion}
-              onMouseDown={() => {
-                setQuery(suggestion);
-                handleSearch();
-              }}
+              onMouseDown={ () =>  {
+                openSuggestion(suggestion)
+            }}
               className="p-2 hover:bg-gray-100 cursor-pointer text-right font-urdu"
             >
               {suggestion}
