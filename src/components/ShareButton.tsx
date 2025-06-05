@@ -13,6 +13,7 @@ export default function ShareButton() {
         await navigator.share({
           title: document.title,
           url,
+          
         });
       } catch (error) {
         console.error("Share failed:", error);
@@ -31,7 +32,7 @@ export default function ShareButton() {
   return (
     <button
       onClick={handleShare}
-      className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition font-medium"
+      className="flex items-center gap-2 px-4  bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition font-medium"
     >
       <svg
         className="w-5 h-5"

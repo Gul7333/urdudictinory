@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 //   subsets: ["arabic"],
 // });
 const notoNastaliqUrdu = localFont({
-  src: '../../public/alvi-lahori.ttf',
+  src: '../../public/alvi-lahori.woff2',
     variable: "--font-nastaleeq",
 
 })
