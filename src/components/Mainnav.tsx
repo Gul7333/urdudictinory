@@ -98,7 +98,7 @@ export default function MainNav() {
               {urduAlphabet.map((letter) => (
                 <Link
                   key={letter}
-                  href={`/categories/${encodeURIComponent(letter)}`}
+                  href={`/category/${encodeURIComponent(letter)}`}
                   onClick={() => setIsMenuOpen(false)}
                   className={`text-xl p-2 text-center rounded transition-colors ${
                     decodeURIComponent(currentLetter) === letter

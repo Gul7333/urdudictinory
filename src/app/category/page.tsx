@@ -1,6 +1,7 @@
 // categories/
 import Link from 'next/link';
 import { getLetterCounts } from '@/lib/words';
+import { Metadata } from 'next';
 
 export default function AlphabetCategories() {
   const letterCounts = getLetterCounts();
@@ -15,7 +16,7 @@ export default function AlphabetCategories() {
         {letterCounts.map(({letter, count}) => (
           <div key={letter} className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
             <Link 
-              href={`/categories/${encodeURIComponent(letter)}`}
+              href={`/category/${encodeURIComponent(letter)}`}
               className="block hover:bg-gray-50 transition-colors"
               aria-label={`${letter} سے شروع ہونے والے ${count} الفاظ`}
             >
@@ -33,4 +34,14 @@ export default function AlphabetCategories() {
       </div>
     </div>
   );
+}
+
+
+
+
+export const metadata: Metadata = {
+ 
+
+  title: 'Category page | Urdu Zaban Dictionary | urduzaban.pk',
+  description: ' explore list of all word categorized under urdu alphabets.',
 }

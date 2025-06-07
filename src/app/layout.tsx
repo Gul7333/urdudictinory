@@ -4,7 +4,9 @@ import "./globals.css";
 import MainNav from "@/components/Mainnav";
 import SearchBar from "@/components/Searchbar";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import localFont from 'next/font/local'
+import localFont from "next/font/local";
+import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,48 +23,68 @@ const geistMono = Geist_Mono({
 //   subsets: ["arabic"],
 // });
 const notoNastaliqUrdu = localFont({
-  src: '../../public/alvi-lahori.woff2',
-    variable: "--font-nastaleeq",
+  src: "../../public/alvi-lahori.woff2",
+  variable: "--font-nastaleeq",
+});
 
-})
+// Base URL for all links
+const baseUrl = "https://urduzaban.pk";
 
-
-  // Base URL for all links
-  const baseUrl = 'https://urduzaban.pk';
-  
-
-  // Default images (replace with your actual image paths)
-  const ogImage = `${baseUrl}/og.png`;
-  const twitterImage = `${baseUrl}/og.png`;
+// Default images (replace with your actual image paths)
+const ogImage = `${baseUrl}/og.png`;
+const twitterImage = `${baseUrl}/og.png`;
 export const metadata: Metadata = {
   title:
     "اردو زبان لغت – Urdu Zaban Lughat | Urdu Dictionary with Meanings & Definitions",
   description:
     "ہزاروں اردو الفاظ کے انگریزی معانی، تعریفات، مترادفات اور مثالوں کے ساتھ تلاش کریں ایک جامع آن لائن اردو لغت طلبا، محققین، اور ادیبوں کے لیے۔ || Discover thousands of Urdu words with English meanings, definitions, synonyms, and examples.",
-    alternates: {
-      canonical: baseUrl,
-    },
-    keywords: ["اردو لغت","اردو لغت","اردو لغت پاکستان", "Urdu Dictionary","Urdu Zaban Dictionary","Collection of Urdu Words", "Urdu Lughat Pakistan", "Modern Urdu Dictionary"],
-    openGraph: {
-      title: `Urduzaban.pk - Best Urdu Dictionary`,
-      description: `Urduzaban.pk - Pakistan Best Urdu Dictionary containing thousands of words`,
-      url: baseUrl,
-      siteName: 'UrduZaban.pk | اردو زبان',
-      locale: 'ur_PK',
-      type: 'website',
-      images: [{
+  alternates: {
+    canonical: baseUrl,
+  },
+  keywords: [
+    "اردو لغت",
+    "اردو لغت",
+    "اردو لغت پاکستان",
+    "Urdu Dictionary",
+    "Urdu Zaban Dictionary",
+    "Collection of Urdu Words",
+    "Urdu Lughat Pakistan",
+    "Modern Urdu Dictionary",
+  ],
+  openGraph: {
+    title: `Urduzaban.pk - Best Urdu Dictionary`,
+    description: `Urduzaban.pk - Pakistan Best Urdu Dictionary containing thousands of words`,
+    url: baseUrl,
+    siteName: "UrduZaban.pk | اردو زبان",
+    locale: "ur_PK",
+    type: "website",
+    images: [
+      {
         url: ogImage,
         width: 1200,
         height: 630,
         alt: `UrduZaban.pk`,
-      }],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      description: `Urduzaban.pk - Pakistan Best Urdu Dictionary containing thousands of words`,
-      images: [twitterImage],
-    },
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    description: `Urduzaban.pk - Pakistan Best Urdu Dictionary containing thousands of words`,
+    images: [twitterImage],
+  },
 };
+
+
+
+
+
+
+
+
+
+
+
+
 
 export default function RootLayout({
   children,
@@ -75,17 +97,20 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${notoNastaliqUrdu.variable} antialiased font-urdu`}
       >
         <MainNav />
-      
-
+<Breadcrumbs
+  items={[
+    { label: 'Blog', href: '/blog' },
+    { label: 'Category', href: '/blog/category' },
+    { label: 'Current Post', href: '/blog/category/post' },
+  ]}
+/>
         <main className="px-2 max-w-4xl mx-auto mt-6">{children}</main>
+        <Footer />
         <GoogleAnalytics gaId="G-7M3CHK3VFJ" />
-        
-
       </body>
     </html>
   );
 }
-
 
 // <!-- Google tag (gtag.js) -->
 // <script async src="https://www.googletagmanager.com/gtag/js?id=G-7M3CHK3VFJ"></script>

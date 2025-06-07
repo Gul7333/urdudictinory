@@ -4,6 +4,8 @@ import ShareButton from "@/components/ShareButton";
 import { dictionaryData } from "@/db";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Script from "next/script";
+import { Article, ProductGroup, WithContext } from "schema-dts";
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
@@ -40,27 +42,7 @@ export async function generateMetadata({
       alternates: {
         canonical: pageUrl,
       },
-    //   openGraph: {
-    //     title: `لفظ نہیں ملا - UrduZaban.pk | Word Not Found`,
-    //     description: `'${word}' کا کوئی اندراج اردو لغت میں موجود نہیں ہے۔ | No entry found for '${word}'.`,
-    //     url: pageUrl,
-    //     siteName: 'UrduZaban.pk | اردو زبان',
-    //     locale: 'ur_PK', // Urdu locale for Pakistan
-    //     type: 'website',
-    //     images: [{
-    //       url: ogImage,
-    //       width: 1200,
-    //       height: 630,
-    //       alt: 'UrduZaban.pk - اردو لغت اور زبان کا مرجع',
-    //     }],
-    //   },
-    //   twitter: {
-    //     card: 'summary_large_image',
-    //     title: `لفظ نہیں ملا - UrduZaban.pk`,
-    //     description: `'${word}' کا کوئی اندراج نہیں ملا | Word not found in Urdu Dictionary.`,
-    //     images: [twitterImage],
-    //   },
-    // };
+   
     }
   }
 
@@ -70,6 +52,10 @@ export async function generateMetadata({
   
   const urduDescription = `لفظ '${match[1]}' urduzaban.pk - کی مکمل معنی، تعریف اور استعمال جانیئے - اردو زبان لغت میں تفصیلات دیکھیں۔`;
   const englishDescription = `Learn the meaning, definition, and usage of '${match[1]}' in Urdu. Explore details on UrduZaban.pk.`;
+
+
+ 
+
 
   return {
     title: `${englishTitle} | ${urduTitle}`, // Dual-language title
@@ -113,19 +99,39 @@ const currentIndex = dictionaryData.findIndex((item) => item[1] === word);
 // Get previous and next items safely
 const previousWord = currentIndex > 0 ? dictionaryData[currentIndex - 1] : null;
 const nextWord = currentIndex < dictionaryData.length - 1 ? dictionaryData[currentIndex + 1] : null;
-
+const wordSchema = match && {
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": match[1],
+  "description": match[4].meaningdetails || match[3],
+  "inDefinedTermSet": "https://urduzaban.pk/",
+  "alternateName": match[4].alternatives ? match[4].alternatives : [],
+  "translation": {
+    "@type": "DefinedTerm",
+    "name": match[4].english,
+    "inLanguage": "en"
+  },
+  "inLanguage": "ur"
+};
 
   if (!match) return notFound();
 
   return (
     <>
+     {/* Add JSON-LD to your page */}
+     <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(wordSchema).replace(/</g, '\\u003c'),
+        }}
+      />
    <FullCard item={match} />
 
 <section className="text-center py-6">
   {/* Related Alphabet List */}
   <div className="flex justify-between">
 
-  <a href={`/words/${match[1][0]}`} className="inline-block">
+  <a href={`/category/${match[1][0]}`} className="inline-block">
     <button className="mt-4 p-2.5 rounded-2xl bg-blue-500 text-white cursor-pointer hover:scale-105 transition">
       {match[1][0]} سے شروع ہونے والے الفاظ کی فہرست
     </button>
