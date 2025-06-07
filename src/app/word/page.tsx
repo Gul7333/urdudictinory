@@ -1,13 +1,9 @@
-import SearchBar from '@/components/Searchbar'
-import React from 'react'
+
+import { redirect } from 'next/navigation'
 
 function Word() {
-  return (
-    <section className='mt-6 mb-6'>
-
-        <SearchBar/>
-    </section>
-  )
+  return redirect("/word/%D8%A7%D8%A8%D8%A7%D8%AD%D8%AA%DB%8C")
 }
 
 export default Word
+

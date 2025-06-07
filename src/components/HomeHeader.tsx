@@ -4,9 +4,10 @@ export default function HomeHeader() {
         {/* Background image */}
         <div className="absolute inset-0">
           <img
-            src="/images/urdu-header.jpg" // Replace with your actual image path
+            src="/og.png" // Replace with your actual image path
             alt="Urdu Dictionary Header"
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full  opacity-30 object-contain"
+          
           />
           <div className="absolute inset-0 bg-gradient-to-b from-white via-white/80 to-transparent"></div>
         </div>
