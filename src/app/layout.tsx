@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Noto_Nastaliq_Urdu } from "next/font/google";
+import { Geist, Geist_Mono, } from "next/font/google";
 import "./globals.css";
 import MainNav from "@/components/Mainnav";
-import SearchBar from "@/components/Searchbar";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import localFont from "next/font/local";
 import Footer from "@/components/Footer";
@@ -90,20 +89,32 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) 
+
+
+
+
+{
+
+
+
+
+
+
+
+
+
+
+  
   return (
     <html lang="ur" dir="rtl">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${notoNastaliqUrdu.variable} antialiased font-urdu`}
       >
         <MainNav />
-<Breadcrumbs
-  items={[
-    { label: 'Blog', href: '/blog' },
-    { label: 'Category', href: '/blog/category' },
-    { label: 'Current Post', href: '/blog/category/post' },
-  ]}
-/>
+{/* <Breadcrumbs
+ 
+/> */}
         <main className="px-2 max-w-4xl mx-auto mt-6">{children}</main>
         <Footer />
         <GoogleAnalytics gaId="G-7M3CHK3VFJ" />

@@ -52,7 +52,7 @@ export default function FullCard({ item }: { item: JsonData }) {
 
       {meaningtitles.length > 0 && (
         <section aria-labelledby="meanings">
-          <h2 id="meanings" className="text-xl text-blue-700 font-bold mt-4">معنی</h2>
+          <h2 id="meanings" className="text-xl text-blue-700 font-bold mt-4">{item[1]} کے معنی </h2>
           {meaningtitles.map((title, idx) => (
             <div key={idx} className="mb-2">
               <span className="text-red-600 block font-semibold">{title}</span>

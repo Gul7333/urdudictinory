@@ -15,8 +15,9 @@ export default function Home() {
   const hasNext = end < dictionaryData.length;
 
   return (
-    <section className="rtl font-urdu flex flex-col gap-4 px-2 max-w-4xl mx-auto mt-10">
+    <>
       <HomeHeader/>
+    <section className="rtl font-urdu flex flex-col gap-4 px-2 max-w-4xl mx-auto mt-10">
       {items.map((item, index) => (
         <Link href={`/word/${encodeURIComponent(item[1])}`} key={index}>
           <MiniCard item={item} />
@@ -35,5 +36,6 @@ export default function Home() {
         )}
       </div>
     </section>
+    </>
   );
 }

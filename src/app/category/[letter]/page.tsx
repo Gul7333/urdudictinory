@@ -14,6 +14,7 @@ export async function generateStaticParams() {
   }));
 }
 
+
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
@@ -21,8 +22,8 @@ export async function generateMetadata({
   const words = getWordsBySpecificLetter(letter);
 
   return {
-    title: `${letter} سے اردو الفاظ | جامع اردو لغت`,
-    description: `${letter} حرف سے شروع ہونے والے ${words.length} اردو الفاظ کی مکمل فہرست`,
+    title: `${letter} سے شروع ہونے والے اردو الفاظ | اردو زبان لغت`,
+    description: `${letter} حرف سے شروع ہونے والے الفاظ کی مکل فہرست - urduzaban.pk`,
     openGraph: {
       title: `${letter} سے اردو الفاظ`,
       description: `${letter} حرف سے شروع ہونے والے ${words.length} اردو الفاظ`,
@@ -35,17 +36,21 @@ export default async function LetterCategoryPage({ params }: PageProps) {
   const words = getWordsBySpecificLetter(letter);
 
   if (words.length === 0) {
-    notFound();
+    <section className="grid place-items-center">
+      <p>
+        No word found
+      </p>
+    </section>
   }
 
   return (
-    <div className="container mx-auto py-8 px-4">
-      <div className="mb-8 text-center">
+    <article className="container mx-auto py-8 px-4">
+      <header className="mb-8 text-center">
         <h1 className="text-3xl font-bold font-urdu">
           {letter} سے شروع ہونے والے الفاظ
         </h1>
         <p className="text-gray-600 mt-2 font-urdu">کل {words.length} الفاظ</p>
-      </div>
+      </header>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {words.map((wordData) => (
@@ -67,6 +72,6 @@ export default async function LetterCategoryPage({ params }: PageProps) {
           </div>
         ))}
       </div>
-    </div>
+    </article>
   );
 }
