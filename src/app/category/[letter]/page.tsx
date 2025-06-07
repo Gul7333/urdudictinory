@@ -1,6 +1,5 @@
 // categories/[letter]/page.tsx
-import { notFound } from "next/navigation";
-import Link from "next/link";
+
 import { getWordsBySpecificLetter, urduAlphabet } from "@/lib/words";
 import type { Metadata } from "next";
 
@@ -58,7 +57,7 @@ export default async function LetterCategoryPage({ params }: PageProps) {
             key={wordData[0]} // Assuming wordData[0] is the ID
             className="border rounded-lg p-4 hover:bg-gray-50 transition-colors"
           >
-            <Link
+            <a
               href={`/word/${encodeURIComponent(wordData[1])}`} // Assuming wordData[1] is the Urdu word
               className="block"
             >
@@ -68,7 +67,7 @@ export default async function LetterCategoryPage({ params }: PageProps) {
               {wordData[2] && ( // Assuming wordData[2] contains English translation
                 <p className="text-gray-600 text-sm">{wordData[2]}</p>
               )}
-            </Link>
+            </a>
           </div>
         ))}
       </div>
