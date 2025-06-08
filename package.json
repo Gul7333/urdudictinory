@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build && pnpm sitemap:generate",
-    "sitemap:generate": "dotenv -c -- npx tsx ./scripts/sitemap.ts",
+    "sitemap:generate": "dotenv -c -- npx tsx ./src/scripts/sitemap.ts",
     "start": "next start",
     "lint": "next lint"
   },
