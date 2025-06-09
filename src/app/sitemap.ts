@@ -29,4 +29,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 }
 
-const revalidate = 400
+export const revalidate = 400
