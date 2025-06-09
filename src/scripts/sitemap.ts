@@ -13,8 +13,8 @@ const SITE_URL = "https://urduzaban.pk"
  */
 
 const ROOT_DIR = process.cwd();
-const APP_DIR = path.join(ROOT_DIR, 'app');
-
+// const APP_DIR = path.join(ROOT_DIR, 'app');
+const APP_DIR = path.join(process.cwd(), 'src', 'app')
 async function main() {
   try {
     const sitemaps = await findSitemapFiles(APP_DIR);
