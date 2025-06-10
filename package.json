@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build && npm sitemap:generate",
+    "build": "next build",
     "sitemap:generate": "npx tsx ./src/scripts/sitemap.ts",
     "start": "next start",
     "lint": "next lint"
