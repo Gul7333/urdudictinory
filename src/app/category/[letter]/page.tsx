@@ -18,14 +18,13 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const letter = decodeURIComponent((await params).letter);
-  const words = getWordsBySpecificLetter(letter);
 
   return {
     title: `${letter} سے شروع ہونے والے اردو الفاظ | اردو زبان لغت`,
     description: `${letter} حرف سے شروع ہونے والے الفاظ کی مکل فہرست - urduzaban.pk`,
     openGraph: {
       title: `${letter} سے اردو الفاظ`,
-      description: `${letter} حرف سے شروع ہونے والے ${words.length} اردو الفاظ`,
+      description: `${letter} حرف سے شروع ہونے والے اردو الفاظ`,
     },
   };
 }

@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import MainNav from "@/components/Mainnav";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import localFont from "next/font/local";
 import Footer from "@/components/Footer";
-import Breadcrumbs from "@/components/Breadcrumbs";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -73,46 +72,18 @@ export const metadata: Metadata = {
   },
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) 
-
-
-
-
-{
-
-
-
-
-
-
-
-
-
-
-  
+}>) {
   return (
     <html lang="ur" dir="rtl">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${notoNastaliqUrdu.variable} antialiased font-urdu`}
       >
         <MainNav />
-{/* <Breadcrumbs
+        {/* <Breadcrumbs
  
 /> */}
         <main className="px-2 max-w-4xl mx-auto mt-6">{children}</main>
