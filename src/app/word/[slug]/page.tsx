@@ -12,7 +12,7 @@ interface PageProps {
 }
 // export const revalidate = 60
 export function generateStaticParams() {
-  const slugs = dictionaryData.slice(0,6000)
+  const slugs = dictionaryData
     .filter((item) => item && item[1]) // Filter out null/undefined and missing index
     .map((item) => ({
       slug:item[1],
@@ -48,19 +48,19 @@ export async function generateMetadata({
   }
 
   // Bilingual titles/descriptions
-  const urduTitle = `${match[1]} کے معنی، تعریف اور استعمال | UrduZaban.pk`;
-  const englishTitle = `${match[1]} - Meaning, Definition & Usage | Urdu Dictionary`;
+  const urduTitle = `${match[1]} کے معنی، تعریف اور استعمال`;
+  const englishTitle = `${match[1]} - Meaning, Definition & Usage`;
   
-  const urduDescription = `لفظ '${match[1]}' urduzaban.pk - کی مکمل معنی، تعریف اور استعمال جانیئے - اردو زبان لغت میں تفصیلات دیکھیں۔`;
-  const englishDescription = `Learn the meaning, definition, and usage of '${match[1]}' in Urdu. Explore details on UrduZaban.pk.`;
+  const urduDescription = ` '${match[1]}' کے معنی ، تشریح ، مترادف  اور استعمال  ۔`;
+  const englishDescription = `Learn the meaning, definition, synonym and usage of '${match[1]}' in Urdu. Explore details on UrduZaban.pk.`;
 
 
  
 
 
   return {
-    title: `${englishTitle} | ${urduTitle}`, // Dual-language title
-    description: `${englishDescription} | ${urduDescription}`,
+    title: `${urduTitle} | ${englishTitle} | urduzaban.pk`, // Dual-language title
+    description: ` ${urduDescription} | ${englishDescription}`,
     alternates: {
       canonical: pageUrl,
     },

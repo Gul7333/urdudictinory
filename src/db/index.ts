@@ -9,17 +9,9 @@ if (process.env.DATA_SOURCE === "remote") {
   data = require("./onlytest.json") as JsonData[];
 }
 
-async function getdb(){
-  if (process.env.DATA_SOURCE === "remote") {
-    data = await getDictionaryData(); // fetch from API or remote JSON
-  } else {
-    // Local fallback
-    data = require("./onlytest.json") as JsonData[];
-  }
-  return data
-}
 
-export const dictionaryData: JsonData[] = await getdb()
+
+export const dictionaryData: JsonData[] = data
 
 
 // import { getDictionaryData } from "@/lib/dictionory";
