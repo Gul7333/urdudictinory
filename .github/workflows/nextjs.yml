@@ -84,6 +84,7 @@ jobs:
         # run: npx --node-options="--stack-size=8192" next build --no-lint
           #   this doest work, give error in post restore cacahe 
         run: node --stack-size=8192 node_modules/.bin/next build --no-lint
+ 
 
 
       - name: Upload artifact
