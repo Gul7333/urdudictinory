@@ -7,7 +7,6 @@ function safeJsonParse<T>(value: string | null | undefined, fallback: T): T {
       return fallback;
     }
   }
-  
 
 export default function FullCard({ item }: { item: JsonData }) {
   const details = item[4];
@@ -23,7 +22,7 @@ export default function FullCard({ item }: { item: JsonData }) {
     <article className="font-urdu text-right leading-loose px-4 py-6">
       <header>
         <h1 className="text-3xl text-center font-bold">{item[1]}</h1>
-        <p className="text-center text-gray-600"> کے معنی ، تشریح، مترادف اور تفصیل {item[1]}</p>
+        <p className="text-center text-gray-600"> {item[1]} کے معنی ، تشریح، مترادف اور تفصیل </p>
 
         <p className="text-center text-gray-600">{details.spelling}</p>
       </header>
