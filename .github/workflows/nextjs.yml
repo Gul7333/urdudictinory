@@ -85,7 +85,7 @@ jobs:
           #   this doest work, give error in post restore cacahe 
         run: node --stack-size=8192 node_modules/.bin/next build --no-lint
       - name: Remove unnecary files
-        run: rm -rf .git .next .src node_modules/ *.log temp/ && du -lh && pwd && df -h
+        run: rm -rf .git .next ./src node_modules/ *.log temp/ && du -lh && pwd && df -h 
 
 
       - name: Upload artifact
