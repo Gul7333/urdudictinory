@@ -20,12 +20,12 @@ export default function FullCard({ item }: { item: JsonData }) {
 
   return (
     <article className="font-urdu text-right leading-loose px-4 py-6">
-      <header>
+      
         <h1 className="text-3xl text-center font-bold">{item[1]}</h1>
         <p className="text-center text-gray-600"> {item[1]} کے معنی ، تشریح، مترادف اور تفصیل </p>
 
         <p className="text-center text-gray-600">{details.spelling}</p>
-      </header>
+    
 
       <section aria-labelledby="description">
         <h2 id="description" className="text-xl text-blue-700 font-bold mt-6">تفصیلات</h2>
