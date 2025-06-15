@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   return paged.map((item) => ({
-    url: `${BASE_URL}/page/${item.id}`,
+    url: `${BASE_URL}/page/${item.id + 1}`,
     lastModified: new Date().toISOString(), // better format for sitemaps
     priority: 0.8
   }));

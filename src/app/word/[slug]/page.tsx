@@ -6,7 +6,7 @@ import { dictionaryData } from "@/db";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Script from "next/script";
-import { Article, DefinedTerm, ProductGroup, WithContext } from "schema-dts";
+import { Article, DefinedTerm, FAQPage, ProductGroup, Question, WithContext } from "schema-dts";
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
@@ -58,8 +58,8 @@ export async function generateMetadata({
 
 
   return {
-    title: `${urduTitle} | ${englishTitle} | urduzaban.pk`, // Dual-language title
-    description: ` ${urduDescription} | ${englishDescription}`,
+    title: `${urduTitle}`, // Dual-language title
+    description: ` ${urduDescription} | ${englishDescription} - urduzaban.pk`,
     alternates: {
       canonical: pageUrl,
     },
@@ -99,13 +99,14 @@ const currentIndex = dictionaryData.findIndex((item) => item[1] === word);
 // Get previous and next items safely
 const previousWord = currentIndex > 0 ? dictionaryData[currentIndex - 1] : null;
 const nextWord = currentIndex < dictionaryData.length - 1 ? dictionaryData[currentIndex + 1] : null;
-const wordSchema : WithContext<DefinedTerm> | undefined = match && {
+const wordSchema : WithContext<Question> | undefined = match && {
   "@context": "https://schema.org",
-  "@type": "DefinedTerm",
-  "name": match[1],
-  "description": match[4].meaningdetails || match[3],
-  "inDefinedTermSet": "https://urduzaban.pk/",
-  "alternateName": match[4].alternatives ? match[4].alternatives : [],
+  "@type": "Question",
+  "name":  `${match[1]} کے کیا معنی ہیں`,
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": match[4].meaningstitles + match[4].meaningdetails
+  }
 };
 
   if (!match) return notFound();
