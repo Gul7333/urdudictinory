@@ -9,7 +9,9 @@ interface JsonDataItem {
     alternatives: string[],
     compounds: string[],
     poetry: string[],
-    idioms: string[]
+    idioms: string[],
+    alternative: string[]
+
   }
  type JsonData = [
     id: number, // First item (e.g., 27)

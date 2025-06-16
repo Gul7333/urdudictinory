@@ -67,6 +67,7 @@ export default function FullCard({ item }: { item: JsonData }) {
         <section aria-labelledby="alternatives">
           <h2 id="alternatives" className="text-xl text-blue-700 font-bold mt-4">مترادف</h2>
           <p>{details.alternatives.join(", ")}</p>
+          <p>{details?.alternative?.join(", ")}</p>
         </section>
       )}
 

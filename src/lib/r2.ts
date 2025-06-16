@@ -100,7 +100,7 @@ const streamToString = (stream: Readable): Promise<string> =>
     try {
       const command = new GetObjectCommand({
         Bucket: "urdudictionary",
-        Key: "onlytest.json",
+        Key: "unique-urdu.json",
       });
   
       const response = await S3.send(command);

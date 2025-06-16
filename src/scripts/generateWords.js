@@ -28,7 +28,7 @@ if (!fs.existsSync(publicDir)) {
 }
 
 // Generate words.json
-const words = listofword();
+const words = new Set(listofword());
 fs.writeFileSync(outputPath, JSON.stringify(words, null, 2));
 
 console.log("✅ words.json generated at public/words.json");
