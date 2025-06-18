@@ -1,12 +1,14 @@
 import React from "react";
-function safeJsonParse<T>(value: string | null | undefined, fallback: T): T {
-    try {
-      if (!value) return fallback;
-      return JSON.parse(value);
-    } catch {
-      return fallback;
-    }
+function safeJsonParse<T>(value: string | any[] | null | undefined, fallback: T): T {
+  try {
+    if (Array.isArray(value)) return value as T;
+    if (typeof value === 'string') return JSON.parse(value);
+    return fallback;
+  } catch {
+    return fallback;
   }
+}
+
 
 export default function FullCard({ item }: { item: JsonData }) {
   const details = item[4];
