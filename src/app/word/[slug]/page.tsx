@@ -50,7 +50,7 @@ export async function generateMetadata({
   const urduTitle = `${match[1]} کے معنی، تعریف اور استعمال`;
   const englishTitle = `${match[1]} - Meaning, Definition & Usage`;
   
-  const urduDescription = ` '${match[1]}' کے معنی ، تشریح ، مترادف  اور استعمال  ۔`;
+  const urduDescription = ` '${match[1]}' کے معنی ، مطلب ، مترادف  اور استعمال  ۔`;
   const englishDescription = `Learn the meaning, definition, synonym and usage of '${match[1]}' in Urdu. Explore details on UrduZaban.pk.`;
 
 
