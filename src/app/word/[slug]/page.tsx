@@ -1,12 +1,9 @@
-import Breadcrumbs from "@/components/Breadcrumbs";
 import FullCard from "@/components/card"; // Adjust path as needed
+import Relatedwords from "@/components/Relatedwords";
 import ShareButton from "@/components/ShareButton";
-// import { getDictionaryData } from "@/lib/dictionory";
 import { dictionaryData } from "@/db";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Script from "next/script";
-import { Article, DefinedTerm, FAQPage, ProductGroup, Question, WithContext } from "schema-dts";
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
@@ -99,15 +96,7 @@ const currentIndex = dictionaryData.findIndex((item) => item[1] === word);
 // Get previous and next items safely
 const previousWord = currentIndex > 0 ? dictionaryData[currentIndex - 1] : null;
 const nextWord = currentIndex < dictionaryData.length - 1 ? dictionaryData[currentIndex + 1] : null;
-const wordSchema : WithContext<Question> | undefined = match && {
-  "@context": "https://schema.org",
-  "@type": "Question",
-  "name":  `${match[1]} کے کیا معنی ہیں`,
-  "acceptedAnswer": {
-    "@type": "Answer",
-    "text": match[4].meaningstitles + match[4].meaningdetails
-  }
-};
+
 
   if (!match) return notFound();
 
@@ -115,6 +104,7 @@ const wordSchema : WithContext<Question> | undefined = match && {
     <>
    
    <FullCard item={match} />
+   <Relatedwords word={match}/>
 
 <section className="text-center py-6">
   {/* Related Alphabet List */}

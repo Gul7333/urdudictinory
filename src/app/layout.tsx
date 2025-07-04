@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   title:
     "اردو زبان لغت – Urdu Zaban Lughat | Urdu Dictionary with Meanings & Definitions",
   description:
-    "ہزاروں اردو الفاظ کے انگریزی معانی، تعریفات، مترادفات اور مثالوں کے ساتھ تلاش کریں ایک جامع آن لائن اردو لغت طلبا، محققین، اور ادیبوں کے لیے۔ || Discover thousands of Urdu words with English meanings, definitions, synonyms, and examples.",
+    "ہزاروں اردو الفاظ کے انگریزی معانی، تعریفات، مترادفات اور مثالوں کے ساتھ تلاش کریں ایک جامع آن لائن اردو لغت طلبا، محققین، اور ادیبوں کے لیے۔ || Discover thousands of Urdu words with English meanings, definitions, synonyms, and examples. | Urduzaban.pk",
   alternates: {
     canonical: baseUrl,
   },

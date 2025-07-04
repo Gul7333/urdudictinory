@@ -102,7 +102,7 @@ export default function FullCard({ item }: { item: JsonData }) {
 
       {details.english && (
         <section aria-labelledby="english">
-          <h2 id="english" className="text-xl text-blue-700 font-bold mt-4">
+          <h2 dir="ltr" id="english" className="text-xl text-blue-700 font-bold mt-4">
             {item[1]} english meaning
           </h2>
           <p dir="ltr">{details.english}</p>
