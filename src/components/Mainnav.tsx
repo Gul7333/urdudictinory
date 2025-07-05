@@ -56,10 +56,10 @@ export default function MainNav() {
   <input type="checkbox" id="menu-toggle" className="hidden" />
 
   {/* Navbar */}
-  <div className="bg-white shadow-md sticky top-0 z-50 px-3">
+  <div className="shadow-md sticky top-0 z-50 px-3 p">
     <div className="container mx-auto py-3">
       <div className="flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold font-urdu text-blue-800">
+        <Link href="/" className="text-2xl font-bold font-urdu text-blue-800 dark:text-blue-400">
           اردو زبان لغت
         </Link>
 
@@ -94,8 +94,8 @@ export default function MainNav() {
             href={`/category/${encodeURIComponent(letter)}`}
             className={`text-xl p-2 text-center rounded transition-colors ${
               decodeURIComponent(currentLetter) === letter
-                ? "bg-blue-600 text-white"
-                : "bg-gray-100 hover:bg-gray-200"
+                ? "bg-blue-600"
+                : "bg-gray-100 dark:bg-gray-800 hover:bg-gray-200"
             }`}
           >
             {letter}
