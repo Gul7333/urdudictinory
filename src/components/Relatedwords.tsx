@@ -37,7 +37,9 @@ function Relatedwords({ word }: { word: JsonData }) {
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {relatedWords.map((item, index) => (
+          <a href={`/word/${encodeURIComponent(item[1])}`}>
           <MiniCard key={`${item[1]}-${index}`} item={item} />
+        </a>
         ))}
       </div>
     </section>
