@@ -16,10 +16,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// const notoNastaliqUrdu = Noto_Nastaliq_Urdu({
-//   variable: "--font-nastaleeq",
-//   subsets: ["arabic"],
-// });
+
 const notoNastaliqUrdu = localFont({
   src: "../../public/alvi-lahori.woff2",
   variable: "--font-nastaleeq",
@@ -83,9 +80,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${notoNastaliqUrdu.variable} antialiased font-urdu`}
       >
         <MainNav />
-        {/* <Breadcrumbs
- 
-/> */}
+      
         <main className="px-2 max-w-4xl mx-auto mt-6">{children}</main>
         <Footer />
         <GoogleAnalytics gaId="G-7M3CHK3VFJ" />
