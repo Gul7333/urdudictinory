@@ -25,7 +25,7 @@ export default function FullCard({ item }: { item: JsonData }) {
     <article className="font-urdu text-right leading-loose px-4 py-6">
       <header>
       <h1 className="text-3xl text-center font-bold">{item[1]} کے معنی</h1>
-      <p className="text-center text-gray-600">
+      <p className="text-center text-gray-600 dark:text-gray-300">
         {item[1]} کے معنی ، تشریح، مترادف اور تفصیل
       </p>
       </header>
@@ -42,7 +42,7 @@ export default function FullCard({ item }: { item: JsonData }) {
 
       {noun.length > 0 && (
         <section aria-labelledby="noun">
-          <h2 id="noun" className="text-xl text-blue-700  dark:bg-blue-400 font-bold mt-4">
+          <h2 id="noun" className="text-xl text-blue-700  dark:text-blue-400 font-bold mt-4">
             اسم
           </h2>
           <p className="text-red-700">{noun.join(", ")}</p>
@@ -51,10 +51,10 @@ export default function FullCard({ item }: { item: JsonData }) {
 
       {nountypes.length > 0 && (
         <section aria-labelledby="nountypes">
-          <h2 id="nountypes" className="text-xl text-blue-700  dark:bg-blue-400 font-bold mt-4">
+          <h2 id="nountypes" className="text-xl text-blue-700  dark:text-blue-400 font-bold mt-4">
             اقسام اسم
           </h2>
-          <ul className="list-disc pr-5 text-blue-600  dark:bg-blue-500 text-right " dir="rtl">
+          <ul className="list-disc pr-5 text-blue-600  dark:text-blue-500 text-right " dir="rtl">
             {nountypes.map((type, idx) => (
               <li key={idx}>{type}</li>
             ))}
@@ -64,7 +64,7 @@ export default function FullCard({ item }: { item: JsonData }) {
 
       {meaningtitles.length > 0 && (
         <section aria-labelledby="meanings">
-          <h2 id="meanings" className="text-xl text-blue-700  dark:bg-blue-400 font-bold mt-4">
+          <h2 id="meanings" className="text-xl text-blue-700  dark:text-blue-400 font-bold mt-4">
             {item[1]} کے معنی
           </h2>
           {meaningtitles.map((title, idx) => (
@@ -81,7 +81,7 @@ export default function FullCard({ item }: { item: JsonData }) {
           <section aria-labelledby="alternatives">
             <h2
               id="alternatives"
-              className="text-xl text-blue-700 dark:bg-blue-400 font-bold mt-4"
+              className="text-xl text-blue-700 dark:text-blue-400 font-bold mt-4"
             >
               {item[1]} کے مترادف
             </h2>
@@ -92,8 +92,8 @@ export default function FullCard({ item }: { item: JsonData }) {
 
       {Array.isArray(details.compounds) && details.compounds.length > 0 && (
         <section aria-labelledby="compounds">
-          <h2 id="compounds" className="text-xl text-blue-700 dark:bg-blue-400 font-bold mt-4">
-            {item[1]} کے مرکبات
+          <h2 id="compounds" className="text-xl text-blue-700 dark:text-blue-400 font-bold mt-4">
+            {item[1]} کے جملے اور مرکبات
           </h2>
           <p>{details.compounds.join(", ")}</p>
         </section>
@@ -110,7 +110,7 @@ export default function FullCard({ item }: { item: JsonData }) {
 
       {Array.isArray(details.poetry) && details.poetry.length > 0 && (
         <section aria-labelledby="poetry">
-          <h2 id="poetry" className="text-xl text-blue-700 dark:bg-blue-400 font-bold mt-4">
+          <h2 id="poetry" className="text-xl text-blue-700 dark:text-blue-400 font-bold mt-4">
             شاعری
           </h2>
           <ul className="list-disc pr-5">
@@ -130,7 +130,7 @@ export default function FullCard({ item }: { item: JsonData }) {
 
       {Array.isArray(details.idioms) && details.idioms.length > 0 && (
         <section aria-labelledby="idioms">
-          <h2 id="idioms" className="text-xl text-blue-700 dark:bg-blue-400 font-bold mt-4">
+          <h2 id="idioms" className="text-xl text-blue-700 dark:text-blue-400 font-bold mt-4">
             محاورات
           </h2>
           <ul className="list-disc pr-5">

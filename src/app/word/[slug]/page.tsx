@@ -9,10 +9,10 @@ interface PageProps {
 }
 // export const revalidate = 60
 export function generateStaticParams() {
-  const slugs = dictionaryData
+  const slugs = dictionaryData.slice(0, 1100) // Limit to first 1000 entries for performance
     .filter((item) => item && item[1]) // Filter out null/undefined and missing index
     .map((item) => ({
-      slug:item[1],
+      slug:encodeURIComponent(item[1]),
     }));
     return slugs
 }
@@ -122,14 +122,14 @@ const nextWord = currentIndex < dictionaryData.length - 1 ? dictionaryData[curre
   <div className="flex justify-between gap-4 mt-6">
     {previousWord && (
       <a href={`/word/${encodeURIComponent(previousWord[1])}`}>
-        <button className="p-2 rounded bg-gray-200 hover:bg-gray-300 text-xl">
+        <button className="p-2 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-xl">
         {previousWord[1]}
         </button>
       </a>
     )}
     {nextWord && (
       <a href={`/word/${encodeURIComponent(nextWord[1])}`}>
-        <button className="p-2 rounded bg-gray-200 hover:bg-gray-300 text-xl">
+        <button className="p-2 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-xl">
           {nextWord[1]} 
         </button>
       </a>

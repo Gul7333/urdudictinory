@@ -27,7 +27,7 @@ export  function SearchBa() {
     if (!query.trim()) return setSuggestions([]);
     const filtered = allWords.filter((w) =>
       w.startsWith(query)
-    ).slice(0, 10);
+    ).slice(0, 15);
     setSuggestions(filtered);
   }, [query, allWords]);
 
@@ -59,7 +59,7 @@ export  function SearchBa() {
         className="px-3 py-2 border border-gray-300 rounded w-full font-bold text-right font-urdu leading-loose"
       />
       {showSuggestions && suggestions.length > 0 && (
-        <ul className="absolute top-full mt-1 w-full md:w-2/3 bg-white border border-gray-300 rounded shadow z-10 max-h-60 overflow-auto">
+        <ul className="absolute top-full mt-1 w-full md:w-2/3 bg-white dark:bg-gray-700 border border-gray-300 rounded shadow z-10 max-h-60 overflow-auto">
           {suggestions.map((suggestion) => (
             <li
               key={suggestion}
