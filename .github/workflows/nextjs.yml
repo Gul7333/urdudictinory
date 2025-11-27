@@ -73,6 +73,8 @@ jobs:
       #       ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name : check runner storage
+        run: df -h
       - name: Build with Next.js
         env:
          ACCOUNT_ID: ${{ secrets.ACCOUNT_ID}}
@@ -80,13 +82,17 @@ jobs:
          SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY}}
  
         # this works
-        run: node --stack-size=8192 ${{ steps.detect-package-manager.outputs.runner }} next build --no-lint
+        # run: node --stack-size=8192 ${{ steps.detect-package-manager.outputs.runner }} next build --no-lint
         # run: npx --node-options="--stack-size=8192" next build --no-lint
           #   this doest work, give error in post restore cacahe 
-        # run: node --stack-size=8192 node_modules/.bin/next build --no-lint
+
+    
+   
+        run: node --stack-size=8192 node_modules/.bin/next build --no-lint
       - name: Remove unnecary files
         run: rm -rf .git .next ./src node_modules/ *.log temp/ && du -lh && pwd && df -h 
-
+      - name : check runner storage
+        run: df -h
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

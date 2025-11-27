@@ -142,7 +142,6 @@ const nextthreewords = dictionaryData.slice(currentIndex + 1, endword);
 </div>
 
 </section>
-<CommentsSection/>
 
     </>
   );
