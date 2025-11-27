@@ -1,6 +1,7 @@
 import FullCard from "@/components/card"; // Adjust path as needed
 import Relatedwords from "@/components/Relatedwords";
 import ShareButton from "@/components/ShareButton";
+import { urduToRoman } from "@/constants/constant";
 import { dictionaryData } from "@/db";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -9,10 +10,10 @@ interface PageProps {
 }
 // export const revalidate = 60
 export function generateStaticParams() {
-  const slugs = dictionaryData// Limit to first 1000 entries for performance
+  const slugs = dictionaryData.slice(0,500)// Limit to first 1000 entries for performance
     .filter((item) => item && item[1]) // Filter out null/undefined and missing index
     .map((item) => ({
-      slug:item[1],
+      slug: encodeURIComponent(item[1]),
     }));
     return slugs
 }
@@ -44,7 +45,7 @@ export async function generateMetadata({
   }
 
   // Bilingual titles/descriptions
-  const urduTitle = `${match[1]} کے معنی، تعریف اور استعمال`;
+  const urduTitle = `${match[1]}  کے معنی، تعریف اور استعمال }`;
   const englishTitle = `${match[1]} - Meaning, Definition & Usage`;
   
   const urduDescription = ` '${match[1]}' کے معنی ، مطلب ، مترادف  اور استعمال  ۔`;
@@ -108,12 +109,11 @@ const nextWord = currentIndex < dictionaryData.length - 1 ? dictionaryData[curre
 
 <section className="text-center py-6">
   {/* Related Alphabet List */}
-  <div className="flex justify-between items-start">
+  <div className="flex flex-col justify-between gap-2.5">
 
-  <a href={`/category/${match[1][0]}`} className="inline-block">
-    <button className=" px-2  rounded-2xl bg-blue-500 text-white cursor-pointer hover:scale-105 transition">
+  <a href={`/category/${match[1][0]}`} className="py-18 px-4 border rounded">
       {match[1][0]} سے شروع ہونے والے الفاظ کی فہرست
-    </button>
+  
   </a>
   <ShareButton/>
 
