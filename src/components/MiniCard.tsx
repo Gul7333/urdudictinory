@@ -20,9 +20,9 @@ export default function MiniCard({ item }: { item: JsonData }) {
       <strong className="text-xl font-bold text-right font-urdu dark:text-white">
         {item[1]}
       </strong>
-      <span className="text-sm text-gray-600 dark:text-gray-300 text-right mt-1">
+      <p className="text-sm text-gray-600 dark:text-gray-300 text-right mt-1">
         {meaningdetails[0] || "کوئی مطلب موجود نہیں"}
-      </span>
+      </p>
     </div>
   );
 }

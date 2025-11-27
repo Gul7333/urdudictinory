@@ -1,5 +1,5 @@
 import FullCard from "@/components/card"; // Adjust path as needed
-import Relatedwords from "@/components/Relatedwords";
+import CommentsSection from "@/components/comments";
 import ShareButton from "@/components/ShareButton";
 import { urduToRoman } from "@/constants/constant";
 import { dictionaryData } from "@/db";
@@ -10,7 +10,7 @@ interface PageProps {
 }
 // export const revalidate = 60
 export function generateStaticParams() {
-  const slugs = dictionaryData.slice(0,500)// Limit to first 1000 entries for performance
+  const slugs = dictionaryData// Limit to first 1000 entries for performance
     .filter((item) => item && item[1]) // Filter out null/undefined and missing index
     .map((item) => ({
       slug:item[1],
@@ -95,23 +95,24 @@ export default async function WordPage({ params }: PageProps) {
 const currentIndex = dictionaryData.findIndex((item) => item[1] === word);
 
 // Get previous and next items safely
-const previousWord = currentIndex > 0 ? dictionaryData[currentIndex - 1] : null;
-const nextWord = currentIndex < dictionaryData.length - 1 ? dictionaryData[currentIndex + 1] : null;
-
-
+// const previousWord = currentIndex > 0 ? dictionaryData[currentIndex - 1] : null;
+// const nextWord = currentIndex < dictionaryData.length - 1 ? dictionaryData[currentIndex + 1] : null;
+const endword = currentIndex + 4;
+//find next 3 words
+const nextthreewords = dictionaryData.slice(currentIndex + 1, endword);
+ 
   if (!match) return notFound();
 
   return (
     <>
    
    <FullCard item={match} />
-   <Relatedwords word={match}/>
 
 <section className="text-center py-6">
   {/* Related Alphabet List */}
   <div className="flex flex-col justify-between gap-2.5">
 
-  <a href={`/category/${match[1][0]}`} className="py-18 px-4 border rounded">
+  <a href={`/category/${match[1][0]}`} className="py-12 text-xl  px-4  shadow-xl rounded">
       {match[1][0]} سے شروع ہونے والے الفاظ کی فہرست
   
   </a>
@@ -119,23 +120,29 @@ const nextWord = currentIndex < dictionaryData.length - 1 ? dictionaryData[curre
 
   </div>
   {/* Interlinking: Previous and Next Words */}
-  <div className="flex justify-between gap-4 mt-6">
-    {previousWord && (
-      <a href={`/word/${encodeURIComponent(previousWord[1])}`}>
-        <button className="p-2 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-xl">
-        {previousWord[1]}
-        </button>
-      </a>
-    )}
-    {nextWord && (
-      <a href={`/word/${encodeURIComponent(nextWord[1])}`}>
-        <button className="p-2 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-xl">
-          {nextWord[1]} 
-        </button>
-      </a>
-    )}
-  </div>
+<div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  {nextthreewords.map((wordItem) => (
+    <a
+      key={wordItem[1]}
+      href={`/word/${encodeURIComponent(wordItem[1])}`}
+      className="
+        block p-6 rounded-2xl bg-white shadow-md 
+        hover:shadow-xl hover:-translate-y-1 transition-all duration-300
+        border border-gray-100
+      "
+    >
+      <div className="text-2xl font-semibold text-gray-800">
+        {wordItem[1]}
+      </div>
+      <div className="text-gray-500 text-lg mt-1">
+        ({urduToRoman(wordItem[1])})
+      </div>
+    </a>
+  ))}
+</div>
+
 </section>
+<CommentsSection/>
 
     </>
   );
