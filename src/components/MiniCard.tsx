@@ -16,13 +16,13 @@ export default function MiniCard({ item }: { item: JsonData }) {
   let meaningdetails: string[] = safeJsonParse(details.meaningdetails, []);
 
   return (
-    <div className="border rounded-xl p-4 shadow hover:shadow-md transition bg-white dark:bg-gray-800 dark:border-gray-700">
-      <h2 className="text-xl font-bold text-right font-urdu dark:text-white">
+    <div className="border rounded-xl p-4 shadow hover:shadow-md transition bg-white dark:bg-gray-800 dark:border-gray-700 shadow-sm">
+      <strong className="text-xl font-bold text-right font-urdu dark:text-white">
         {item[1]}
-      </h2>
-      <p className="text-sm text-gray-600 dark:text-gray-300 text-right mt-1">
+      </strong>
+      <span className="text-sm text-gray-600 dark:text-gray-300 text-right mt-1">
         {meaningdetails[0] || "کوئی مطلب موجود نہیں"}
-      </p>
+      </span>
     </div>
   );
 }

@@ -13,7 +13,7 @@ export function generateStaticParams() {
   const slugs = dictionaryData.slice(0,500)// Limit to first 1000 entries for performance
     .filter((item) => item && item[1]) // Filter out null/undefined and missing index
     .map((item) => ({
-      slug: encodeURIComponent(item[1]),
+      slug:item[1],
     }));
     return slugs
 }

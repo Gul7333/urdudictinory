@@ -12,7 +12,7 @@ function Relatedwords({ word }: { word: JsonData }) {
       if (dictionaryWord === targetWord) return false;
       if(dictionaryWord.includes(targetwordtosearch)) return true;
     })
-    .slice(0, 5);
+    .slice(0, 3);
 
   if (relatedWords.length === 0) return null;
 
