@@ -1,4 +1,4 @@
-import { urduToRoman } from "@/constants/constant";
+// import { urduToRoman } from "@/constants/constant";
 import React from "react";
 
 function safeJsonParse<T>(
@@ -25,7 +25,7 @@ export default function FullCard({ item }: { item: JsonData }) {
   return (
     <article className="font-urdu text-right leading-loose px-4 py-6">
       <header>
-      <h1 className="text-3xl text-center font-bold">{item[1]} کے معنی ، مترادف ، اور مطلب | urdu word {urduToRoman(item[1])} meanings and details </h1>
+      <h1 className="text-3xl text-center font-bold">{item[1]} کے معنی ، مترادف ، اور مطلب | urdu word {item[4].roman} meanings and details </h1>
       <p className="text-center text-gray-600 dark:text-gray-300">
         {item[1]} کے معنی ، تشریح، مترادف اور تفصیل
       </p>

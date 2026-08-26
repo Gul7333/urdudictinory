@@ -5,6 +5,7 @@ interface JsonDataItem {
     noun: string,
     meaningstitles: string,
     meaningdetails: string,
+    roman:string,
     english: string,
     alternatives: string[],
     compounds: string[],
