@@ -71,9 +71,9 @@ export default function ContactForm() {
     <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white" dir='ltr'>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+          <h1 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
             Contact Us
-          </h2>
+          </h1>
           <p className="mt-4 text-xl text-gray-600">
             Have questions? We'd love to hear from you.
           </p>
@@ -81,61 +81,10 @@ export default function ContactForm() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Information */}
-          <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-8 lg:p-12">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Get in touch</h3>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Get in touch</h2>
             
-            <div className="space-y-6">
-              <div className="flex items-start">
-                <div className="flex-shrink-0 bg-indigo-100 p-3 rounded-lg">
-                  <EnvelopeIcon className="h-6 w-6 text-indigo-600" />
-                </div>
-                <div className="ml-4">
-                  <h4 className="text-lg font-medium text-gray-900">Email us</h4>
-                  <p className="mt-1 text-gray-600">support@urduzaban.pk</p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="flex-shrink-0 bg-indigo-100 p-3 rounded-lg">
-                  <PhoneIcon className="h-6 w-6 text-indigo-600" />
-                </div>
-                <div className="ml-4">
-                  <h4 className="text-lg font-medium text-gray-900">Call us</h4>
-                  <p className="mt-1 text-gray-600">+1 (555) 123-4567</p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="flex-shrink-0 bg-indigo-100 p-3 rounded-lg">
-                  <MapPinIcon className="h-6 w-6 text-indigo-600" />
-                </div>
-                <div className="ml-4">
-                  <h4 className="text-lg font-medium text-gray-900">Explore Urdu Language</h4>
-                  <p className="mt-1 text-gray-600">
-                    Islamabad <br />
-                    Pakistan
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 pt-8 border-t border-gray-200">
-              <h4 className="text-lg font-medium text-gray-900 mb-4">Follow us</h4>
-              <div className="flex space-x-4">
-                {['Facebook', 'Twitter', 'Instagram'].map((social) => (
-                  <a
-                    key={social}
-                    href="#"
-                    className="bg-white p-3 rounded-full shadow-sm hover:bg-gray-50 transition-colors"
-                    aria-label={social}
-                  >
-                    <span className="sr-only">{social}</span>
-                    <div className="h-5 w-5 bg-gray-300 rounded-full"></div>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
+            
+        
 
           {/* Contact Form */}
           <div className="bg-white rounded-2xl shadow-xl p-8 lg:p-12">

@@ -10,10 +10,10 @@ interface PageProps {
 }
 // export const revalidate = 60
 export function generateStaticParams() {
-  const slugs = dictionaryData // Limit to first 1000 entries for performance
+  const slugs = dictionaryData.slice(0,500) // Limit to first 1000 entries for performance
     .filter((item) => item && item[1]) // Filter out null/undefined and missing index
     .map((item) => ({
-      slug: item[1],
+      slug: encodeURIComponent(item[1]),
     }));
   return slugs;
 }
@@ -90,14 +90,13 @@ export default async function WordPage({ params }: PageProps) {
   const match = dictionaryData.find((item) => item[1] === word);
   // Find index of the current word
   const currentIndex = dictionaryData.findIndex((item) => item[1] === word);
-
   // Get previous and next items safely
   // const previousWord = currentIndex > 0 ? dictionaryData[currentIndex - 1] : null;
   // const nextWord = currentIndex < dictionaryData.length - 1 ? dictionaryData[currentIndex + 1] : null;
   const endword = currentIndex + 4;
   //find next 3 words
   const nextthreewords = dictionaryData.slice(currentIndex + 1, endword);
-
+console.log(match);
   if (!match) return notFound();
 
   return (
@@ -139,6 +138,9 @@ export default async function WordPage({ params }: PageProps) {
             </a>
           ))}
         </div>
+
+                <CommentsSection/>
+
       </section>
     </>
   );

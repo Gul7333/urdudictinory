@@ -1,8 +1,8 @@
 import json
 
-ONLY_FILE = "../db/onlytest.json"
+ONLY_FILE = "../../../urdudbtoweb/unique-urdu.json"
 ROMAN_FILE = "../../../../Downloads/words_roman .json"
-OUTPUT_FILE = "onlytest_with_roman.json"
+OUTPUT_FILE = "unique_urdu_with_roman.json"
 
 
 # Load onlytest.json

@@ -21,6 +21,7 @@ export default function FullCard({ item }: { item: JsonData }) {
   const meaningdetails: string[] = safeJsonParse(details.meaningdetails, []);
   const noun: string[] = safeJsonParse(details.noun, []);
   const nountypes: string[] = safeJsonParse(details.nountypes, []);
+  // const roman: string[] = safeJsonParse(details.roman, []);
 
   return (
     <article className="font-urdu text-right leading-loose px-4 py-6">

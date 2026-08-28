@@ -1,14 +1,11 @@
 import {
     S3Client,
-    ListBucketsCommand,
-    ListObjectsV2Command,
     GetObjectCommand,
-    PutObjectCommand,
   } from "@aws-sdk/client-s3";
 import { Readable } from "stream";
 const ACCOUNT_ID = process.env.ACCOUNT_ID || ""
 const ACCESS_KEY_ID = process.env.ACCESS_KEY_ID || ""
-console.log(ACCESS_KEY_ID)
+// console.log(ACCESS_KEY_ID)
   const SECRET_ACCESS_KEY = process.env.SECRET_ACCESS_KEY || ""
   const S3 = new S3Client({
     region: "auto",
@@ -100,7 +97,7 @@ const streamToString = (stream: Readable): Promise<string> =>
     try {
       const command = new GetObjectCommand({
         Bucket: "urdudictionary",
-        Key: "unique-urdu.json",
+        Key: "unique_urdu_with_roman.json",
       });
   
       const response = await S3.send(command);

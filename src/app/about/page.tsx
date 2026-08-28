@@ -34,12 +34,7 @@ const AboutPage = () => {
                 <li>Daily word highlights and language tips</li>
               </ul>
               
-              <h2 className="text-2xl font-semibold text-gray-800 mt-8 mb-4">Our History</h2>
-              <p className="text-gray-700 mb-4">
-                Founded in 2023, Urdu Zaban Dictionary began as a passion project by language scholars and tech 
-                enthusiasts who wanted to create a modern, accessible Urdu dictionary. Today, we serve millions of 
-                users monthly from all over the world.
-              </p>
+            
             </div>
           </div>
           
@@ -64,35 +59,15 @@ const AboutPage = () => {
                 <li>یومیہ نمایاں الفاظ اور زبان کے نکات</li>
               </ul>
               
-              <h2 className="text-2xl font-semibold text-gray-800 mt-8 mb-4">ہماری تاریخ</h2>
+         
+            </div>
+          </div>
+               <h2 className="text-2xl font-semibold text-gray-800 mt-8 mb-4">ہماری تاریخ</h2>
               <p className="text-gray-700 mb-4">
                 2023 میں قائم ہونے والی اردو زبان ڈکشنری کا آغاز زبان کے علماء اور ٹیکنالوجی کے شوقین افراد کے ایک جذبے کے منصوبے کے طور پر ہوا
                 جو ایک جدید، قابل رسائی اردو ڈکشنری بنانا چاہتے تھے۔ آج، ہم دنیا بھر سے لاکھوں صارفین کو ماہانہ خدمت فراہم کرتے ہیں۔
               </p>
-            </div>
-          </div>
-          
-          {/* Team Section */}
-          <section className="mb-16">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-8 text-center">Our Team / ہماری ٹیم</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-md text-center">
-                <div className="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4"></div>
-                <h3 className="text-xl font-medium">Dr. Ahmed Khan</h3>
-                <p className="text-gray-600">Linguistics Expert / ماہر لسانیات</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md text-center">
-                <div className="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4"></div>
-                <h3 className="text-xl font-medium">Sarah Mahmood</h3>
-                <p className="text-gray-600">Content Director / مواد ڈائریکٹر</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md text-center">
-                <div className="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4"></div>
-                <h3 className="text-xl font-medium">Ali Raza</h3>
-                <p className="text-gray-600">Tech Lead / ٹیک لیڈ</p>
-              </div>
-            </div>
-          </section>
+         
           
           {/* CTA Section */}
           <div className="bg-blue-50 p-8 rounded-lg text-center">
@@ -108,7 +83,8 @@ const AboutPage = () => {
             </button>
             </Link>
           </div>
-        </section>
+        </section> {/* Team Section */}
+         
       </article>
     </>
   );
@@ -121,7 +97,4 @@ export const metadata = {
     title: 'About page | Urdu Zaban Dictionary',
     description: ' Urdu Zaban Dictionary is the most comprehensive online resource for Urdu and English language learners, translators, and enthusiasts. Our mission is to preserve and promote the beautiful Urdu language while  making it accessible to everyone worldwide.',
     keywords: ['About page', 'About urdu zaban', 'Urdu zaban dictionary privacy'],
-   
- 
-    
   };

@@ -40,7 +40,7 @@ const Footer = () => {
           </div>
 
           {/* Social Media */}
-          <div className="space-y-4">
+          {/* <div className="space-y-4">
             <h3 className="text-xl font-semibold">Connect With Us</h3>
             <div className="flex space-x-4">
               <a href="https://facebook.com" aria-label="Facebook" className="bg-gray-700 hover:bg-gray-600 p-3 rounded-full transition">
@@ -56,7 +56,7 @@ const Footer = () => {
             <p className="text-gray-300">
               Follow us on social media for the latest updates
             </p>
-          </div>
+          </div> */}
         </div>
 
         {/* Copyright */}
