@@ -26,7 +26,7 @@ export default function FullCard({ item }: { item: JsonData }) {
   return (
     <article className="font-urdu text-right leading-loose px-4 py-6">
       <header>
-      <h1 className="text-3xl text-center font-bold">{item[1]} کے معنی ، مترادف ، اور مطلب | urdu word {item[4].roman} meanings and details </h1>
+      <h1 className="text-3xl text-center font-bold">{`${item[1]} کے معنی ، مترادف ، اور مطلب | urdu word ${item[4].roman} meanings and details `} </h1>
       <p className="text-center text-gray-600 dark:text-gray-300">
         {item[1]} کے معنی ، تشریح، مترادف اور تفصیل
       </p>
@@ -104,7 +104,7 @@ export default function FullCard({ item }: { item: JsonData }) {
       {details.english && (
         <section aria-labelledby="english">
           <h2 dir="ltr" id="english" className="text-xl text-blue-700 dark:bg-blue-400 font-bold mt-4">
-            {item[1]} english meaning
+            {`${item[1]} or ${item[4].roman} english Translation`}
           </h2>
           <p dir="ltr">{details.english}</p>
         </section>

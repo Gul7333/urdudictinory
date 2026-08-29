@@ -9,10 +9,10 @@ interface PageProps {
 }
 // export const revalidate = 60
 export function generateStaticParams() {
-  const slugs = dictionaryData // Limit to first 1000 entries for performance
+  const slugs = dictionaryData.slice(0,600) // Limit to first 1000 entries for performance
     .filter((item) => item && item[1]) // Filter out null/undefined and missing index
     .map((item) => ({
-      slug: item[1],
+      slug: encodeURIComponent(item[1]),
     }));
   return slugs;
 }
@@ -44,7 +44,7 @@ export async function generateMetadata({
   }
 
   // Bilingual titles/descriptions
-  const urduTitle = `${match[1]}  کے معنی، تعریف اور استعمال }`;
+  const urduTitle = `${match[1]}  کے معنی، تعریف اور استعمال | ${match[4].roman} urdu meanings & Translation`;
   const englishTitle = `${match[4].roman} urdu Meaning, Definition & Usage`;
 
   const urduDescription = ` '${match[1]}' کے معنی ، مطلب ، مترادف  اور استعمال  ۔`;
