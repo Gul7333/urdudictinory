@@ -40,9 +40,9 @@ export default function CommentForm() {
   return (
     <div dir="ltr" className="w-full min-h-screen bg-gradient-to-br from-gray-50 to-gray-200 flex items-center justify-center p-6">
       <div className="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-8">
-        <h2 className="text-2xl font-bold mb-2 text-gray-800">
+        <strong className="text-2xl font-bold mb-2 text-gray-800">
           We’d love to hear your thoughts!
-        </h2>
+        </strong>
         <p className="text-gray-500 mb-6 text-sm">
           Share your comment below and join the conversation ✨
         </p>

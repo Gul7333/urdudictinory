@@ -1,7 +1,6 @@
 import FullCard from "@/components/card"; // Adjust path as needed
 import CommentsSection from "@/components/comments";
 import ShareButton from "@/components/ShareButton";
-// import { urduToRoman } from "@/constants/constant";
 import { dictionaryData } from "@/db";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -96,7 +95,6 @@ export default async function WordPage({ params }: PageProps) {
   const endword = currentIndex + 4;
   //find next 3 words
   const nextthreewords = dictionaryData.slice(currentIndex + 1, endword);
-console.log(match);
   if (!match) return notFound();
 
   return (
