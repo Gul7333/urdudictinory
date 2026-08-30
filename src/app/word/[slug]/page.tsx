@@ -44,7 +44,7 @@ export async function generateMetadata({
   }
 
   // Bilingual titles/descriptions
-  const urduTitle = `${match[1]}  کے معنی، تعریف اور استعمال | ${match[4].roman} urdu meanings & Translation`;
+  const urduTitle = `${match[1]} کے معنی تعریف ,استعمال | ${match[4].roman}`;
   const englishTitle = `${match[4].roman} urdu Meaning, Definition & Usage`;
 
   const urduDescription = ` '${match[1]}' کے معنی ، مطلب ، مترادف  اور استعمال  ۔`;
